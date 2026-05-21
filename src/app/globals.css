@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f9fc;
+  --foreground: #0d1e36;
+  
+  --primary-navy: #0d1e36;
+  --primary-navy-hover: #071529;
+  --accent-yellow: #ffc01e;
+  --accent-blue: #2f65f6;
+  --accent-cyan: #3fa9f5;
+  --accent-pink: #e45373;
+  --gray-50: #f8f9fc;
+  --gray-100: #f1f3f7;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-navy: var(--primary-navy);
+  --color-primary-navy-hover: var(--primary-navy-hover);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-pink: var(--accent-pink);
+  
+  --font-sans: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-outfit), system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+/* Smooth Scrolling & Customizations */
+html {
+  scroll-behavior: smooth;
+}
+
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.glow-btn:hover::after {
+  height: 300%;
+}

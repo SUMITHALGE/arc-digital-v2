@@ -1,0 +1,325 @@
+/* ===== Hero Section Layout ===== */
+.hero {
+  padding: 60px 0 100px;
+  background-color: var(--gray-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* ===== Left Content Column ===== */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.badge {
+  background-color: rgba(47, 101, 246, 0.08);
+  border: 1px solid rgba(47, 101, 246, 0.15);
+  color: var(--accent-blue);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 42px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 56px;
+  }
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray-600);
+  max-width: 540px;
+  margin: 0;
+}
+
+.btnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.primaryBtn {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-navy);
+  box-shadow: 0 4px 14px rgba(13, 30, 54, 0.15);
+}
+
+.primaryBtn:hover {
+  background-color: transparent;
+  color: var(--primary-navy);
+  box-shadow: 0 6px 20px rgba(13, 30, 54, 0.1);
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--primary-navy);
+  padding: 14px 32px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-navy);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ===== Right Visual — Blob Composition ===== */
+.visualWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 520 / 540;
+}
+
+.blobSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.06));
+}
+
+/* ===== Overlay Circles (photos & widgets) ===== */
+.overlayCircle {
+  position: absolute;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* --- Photo frame shared styles --- */
+.photoFrame {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photoFrame:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.photoImg {
+  object-fit: cover;
+}
+
+/* --- Member 1 Position (left, between row 1 & 2) --- */
+.member1Pos {
+  left: 3%;
+  top: 26%;
+  width: 22%;
+  height: calc(22% * 520 / 540);
+}
+
+/* --- Member 2 Position (top of cyan pill) --- */
+.member2Pos {
+  right: 3%;
+  top: 5%;
+  width: 19%;
+  height: calc(19% * 520 / 540);
+}
+
+/* --- Member 3 Position (bottom center) --- */
+.member3Pos {
+  left: 38%;
+  bottom: 6%;
+  width: 22%;
+  height: calc(22% * 520 / 540);
+}
+
+/* --- Camera Widget Position (cyan pill, upper-middle) --- */
+.cameraPosWidget {
+  right: 4.5%;
+  top: 33%;
+  width: 15%;
+  height: calc(15% * 520 / 540);
+}
+
+.cameraWidget {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(47, 101, 246, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.cameraWidget:hover {
+  transform: scale(1.1);
+}
+
+.widgetIcon {
+  width: 45%;
+  height: 45%;
+}
+
+/* --- White 3D Circle Position (cyan pill, lower-middle) --- */
+.whitePosWidget {
+  right: 4%;
+  top: 52%;
+  width: 16%;
+  height: calc(16% * 520 / 540);
+}
+
+.whiteCircleWidget {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: 
+    0 8px 24px rgba(13, 30, 54, 0.08),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.whiteCircleWidget:hover {
+  transform: scale(1.06);
+}
+
+/* --- Target Concentric Rings Position (bottom-left) --- */
+.targetPosWidget {
+  left: 8%;
+  bottom: 8%;
+  width: 18%;
+  height: calc(18% * 520 / 540);
+}
+
+.targetWidget {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 5px solid var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(47, 101, 246, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.targetWidget:hover {
+  transform: scale(1.08);
+}
+
+.targetMid {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.targetCore {
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+/* ===== Float Animation ===== */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 991px) {
+  .visualWrapper {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .visualWrapper {
+    max-width: 340px;
+  }
+
+  .member1Pos {
+    width: 26%;
+    height: calc(26% * 520 / 540);
+  }
+
+  .member2Pos {
+    width: 22%;
+    height: calc(22% * 520 / 540);
+  }
+
+  .member3Pos {
+    width: 26%;
+    height: calc(26% * 520 / 540);
+  }
+}

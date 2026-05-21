@@ -1,0 +1,142 @@
+.processPage {
+  padding: 60px 0 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  max-width: 700px;
+  margin-bottom: 80px;
+}
+
+.label {
+  color: var(--accent-blue);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-size: 40px;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--gray-200);
+}
+
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 56px;
+}
+
+@media (min-width: 768px) {
+  .timelineItem {
+    flex-direction: row;
+    padding-left: 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .timelineItem:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+.timelineMarker {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  border: 4px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .timelineMarker {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.timelineContent {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(13, 30, 54, 0.02);
+}
+
+@media (min-width: 768px) {
+  .timelineContent {
+    width: 45%;
+  }
+}
+
+.timelineTitle {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+
+.timelineDesc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
