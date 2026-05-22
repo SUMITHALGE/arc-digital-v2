@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   description:
     "Arc Digital Solutions builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
   metadataBase: new URL("https://arcdigitalsolutions.com"),
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   alternates: {
     canonical: "/",
   },

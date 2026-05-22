@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
@@ -21,6 +22,11 @@ const servicesList = [
     title: "SEO Services",
     href: "/services/seo-services",
     desc: "Dominate search rankings and attract leads.",
+  },
+  {
+    title: "Application Development",
+    href: "/services/application-development",
+    desc: "Scalable mobile & web apps that drive engagement.",
   },
 ];
 
@@ -59,30 +65,14 @@ export default function Navbar() {
       <div className={styles.container}>
         {/* Brand Logo */}
         <Link href="/" className={styles.logo}>
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-8 h-8 text-primary-navy"
-          >
-            {/* Custom stylized 'A' matching Arc Digital Solutions branding */}
-            <path
-              d="M15 85 L45 15 C47 11 53 11 55 15 L85 85"
-              stroke="currentColor"
-              strokeWidth="12"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M33 60 C40 45, 60 45, 67 60"
-              stroke="var(--accent-blue)"
-              strokeWidth="10"
-              strokeLinecap="round"
-            />
-            <circle cx="50" cy="35" r="8" fill="var(--accent-yellow)" />
-          </svg>
+          <Image
+            src="/assets/logo.svg"
+            alt="Arc Digital Solutions Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+            priority
+          />
           <div className={styles.logoText}>
             <span>Arc Digital</span>
             <span className={styles.logoSub}>Solutions</span>
