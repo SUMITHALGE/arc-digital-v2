@@ -1,0 +1,354 @@
+/* ===== Elegant Carousel ===== */
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 24px 48px;
+  background-color: var(--gray-50);
+}
+
+.carousel-bg-wash {
+  position: absolute;
+  inset: 0;
+  transition: background 1.2s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Layout ---- */
+.carousel-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carousel-content {
+  flex: 1 1 45%;
+  min-width: 0;
+}
+
+.carousel-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---- Collection number ---- */
+.carousel-collection-num {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-collection-num.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-collection-num.transitioning {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.carousel-num-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background-color: var(--gray-400);
+}
+
+.carousel-num-text {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  font-family: var(--font-sans);
+}
+
+/* ---- Title ---- */
+.carousel-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--primary-navy);
+  margin: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0.05s;
+}
+
+.carousel-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-title.transitioning {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* ---- Subtitle ---- */
+.carousel-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0.1s;
+}
+
+.carousel-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-subtitle.transitioning {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* ---- Description ---- */
+.carousel-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin: 0;
+  max-width: 400px;
+  font-family: var(--font-sans);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0.15s;
+}
+
+.carousel-description.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-description.transitioning {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* ---- Navigation Arrows ---- */
+.carousel-nav-arrows {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.carousel-arrow-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-300);
+  background: transparent;
+  color: var(--primary-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow-btn:hover {
+  background-color: var(--primary-navy);
+  border-color: var(--primary-navy);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ---- Image Container ---- */
+.carousel-image-container {
+  flex: 1 1 50%;
+  position: relative;
+  min-width: 0;
+}
+
+.carousel-image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 3 / 4;
+  background-color: var(--gray-200);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 25px 60px rgba(13, 30, 54, 0.12);
+}
+
+.carousel-image-frame.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-image-frame.transitioning {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-image-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 1s ease;
+}
+
+/* ---- Decorative Frame Corners ---- */
+.carousel-frame-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.4;
+  transition: border-color 0.6s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.carousel-frame-corner--tl {
+  top: -10px;
+  left: -10px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.carousel-frame-corner--br {
+  bottom: -10px;
+  right: -10px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.carousel-wrapper:hover .carousel-frame-corner {
+  opacity: 0.7;
+}
+
+/* ---- Progress Bar ---- */
+.carousel-progress-bar {
+  display: flex;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 48px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-progress-item {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.carousel-progress-track {
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray-200);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.carousel-progress-fill {
+  height: 100%;
+  background-color: var(--gray-400);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+.carousel-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-400);
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  transition: color 0.3s ease;
+}
+
+.carousel-progress-item.active .carousel-progress-label {
+  color: var(--primary-navy);
+}
+
+.carousel-progress-item:hover .carousel-progress-label {
+  color: var(--gray-600);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    padding: 48px 16px 32px;
+  }
+
+  .carousel-inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .carousel-content {
+    order: 2;
+    text-align: center;
+  }
+
+  .carousel-content-inner {
+    align-items: center;
+  }
+
+  .carousel-image-container {
+    order: 1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .carousel-title {
+    font-size: 32px;
+  }
+
+  .carousel-description {
+    font-size: 14px;
+    max-width: 340px;
+  }
+
+  .carousel-nav-arrows {
+    justify-content: center;
+  }
+
+  .carousel-progress-bar {
+    margin-top: 32px;
+  }
+
+  .carousel-progress-label {
+    display: none;
+  }
+
+  .carousel-frame-corner {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-title {
+    font-size: 28px;
+  }
+
+  .carousel-image-frame {
+    aspect-ratio: 4 / 5;
+  }
+}

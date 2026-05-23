@@ -4,63 +4,120 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Code,
-  Sparkles,
-  Search,
-  Smartphone,
   ArrowRight,
   ChevronDown,
 } from "lucide-react";
 import Hero from "@/components/Hero";
+import ServicesSection from "@/components/ui/services";
+import ElegantCarousel from "@/components/ui/elegant-carousel";
+import { AnimatedTestimonialGrid, Testimonial } from "@/components/ui/testimonial-2";
 import styles from "./page.module.css";
 
-
-
-const services = [
+const indianTestimonials: Testimonial[] = [
   {
-    icon: <Code className="w-7 h-7 text-accent-blue" />,
-    title: "Website Development",
-    href: "/services/website-development",
-    desc: "Build fast, modern, and SEO-first custom web applications designed specifically to rank on search engines, load instantly, and turn users into active clients.",
-    color: "rgba(47, 101, 246, 0.08)",
+    imgSrc: "https://images.unsplash.com/photo-1507152832244-10d45a7e3b93?q=80&w=300&auto=format&fit=crop",
+    alt: "Aarav Sharma",
+    name: "Aarav Sharma",
+    role: "Founder, BharatTech",
+    category: "Web Development",
+    review: "Arc engineered our client portal from scratch using Next.js. The site is blazing fast, and our conversion rate went up by 45% in the first month."
   },
   {
-    icon: <Sparkles className="w-7 h-7 text-accent-yellow" />,
-    title: "Website Redesign",
-    href: "/services/website-redesign",
-    desc: "Revitalize your legacy websites with high-converting, state-of-the-art designs, premium layouts, fluid animations, and mobile-responsive architectures.",
-    color: "rgba(255, 192, 30, 0.08)",
+    imgSrc: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop",
+    alt: "Priya Patel",
+    name: "Priya Patel",
+    role: "CTO, FinVantage",
+    category: "App Development",
+    review: "The app development team at Arc created an incredibly polished cross-platform product. Our active user metrics grew by 80% due to the seamless UX."
   },
   {
-    icon: <Search className="w-7 h-7 text-accent-cyan" />,
-    title: "SEO Services",
-    href: "/services/seo-services",
-    desc: "Increase search exposure and drive organic sales using advanced page speed optimization, structured metadata configurations, and user intent alignment.",
-    color: "rgba(63, 169, 245, 0.08)",
+    imgSrc: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=300&auto=format&fit=crop",
+    alt: "Rohan Mehta",
+    name: "Rohan Mehta",
+    role: "Head of Growth, BloomRetail",
+    category: "SEO Services",
+    review: "Their SEO audit and custom sitemaps transformed our visibility. We saw a 140% spike in organic traffic and now rank on page one for major keywords."
   },
   {
-    icon: <Smartphone className="w-7 h-7 text-accent-pink" />,
-    title: "Application Development",
-    href: "/services/application-development",
-    desc: "Engineer scalable, high-performance mobile and web applications using React Native, Flutter, and modern cloud-native architectures that drive user engagement by 3x.",
-    color: "rgba(228, 83, 115, 0.08)",
+    imgSrc: "https://images.unsplash.com/photo-1618018352910-72bdafdc52a6?q=80&w=300&auto=format&fit=crop",
+    alt: "Ananya Iyer",
+    name: "Ananya Iyer",
+    role: "Product Manager, HealthSet",
+    category: "Web Development",
+    review: "Next.js performance optimizations implemented by Arc lowered our bounce rates by 35%. Dynamic loading and responsive layouts are top notch."
   },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300&auto=format&fit=crop",
+    alt: "Vikram Singh",
+    name: "Vikram Singh",
+    role: "CEO, EduPulse",
+    category: "App Development",
+    review: "Arc built a secure, scalable learning app that handles 50k+ students. Zero crashes and exceptional design. Highly recommend their app dev services!"
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop",
+    alt: "Neha Gupta",
+    name: "Neha Gupta",
+    role: "Marketing Director, TravelInd",
+    category: "SEO Services",
+    review: "Integrating custom schema data and optimizing Core Web Vitals boosted our Google ranking rapidly. Organic lead generation has doubled."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&auto=format&fit=crop",
+    alt: "Aditya Joshi",
+    name: "Aditya Joshi",
+    role: "Co-Founder, ZenLogistics",
+    category: "Web Development",
+    review: "They redesigned our legacy dashboard into a modern, responsive web application. The dashboard load times dropped from 8s to under 1.2s."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=300&auto=format&fit=crop",
+    alt: "Ishita Sen",
+    name: "Ishita Sen",
+    role: "VP Engineering, PayZone",
+    category: "App Development",
+    review: "A complex fintech app developed with security-first practices. Arc delivered a premium, high-fidelity experience that exceeded our expectations."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
+    alt: "Kabir Verma",
+    name: "Kabir Verma",
+    role: "E-commerce Director, SpiceRoute",
+    category: "SEO Services",
+    review: "Our organic search revenue grew by 115% following Arc's SEO schema audits. They made our product listings stand out in search results."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop",
+    alt: "Meera Nair",
+    name: "Meera Nair",
+    role: "Brand Lead, CozyRooms",
+    category: "Web Development",
+    review: "Working with Arc was a breeze. They brought our design vision to life with perfect responsiveness and clean Next.js architecture."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
+    alt: "Rahul Rao",
+    name: "Rahul Rao",
+    role: "Founder, QuickBite",
+    category: "App Development",
+    review: "Our new food-delivery mobile interface is exceptionally fluid. Order completion rate rose by 50% since launch. Phenomenal engineering."
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&auto=format&fit=crop",
+    alt: "Diya Bose",
+    name: "Diya Bose",
+    role: "SEO Specialist, NewsVibe",
+    category: "SEO Services",
+    review: "Arc's technical SEO approach has been stellar. Indexation speeds for new articles went from days to minutes with real-time site crawling."
+  }
 ];
 
-const featuredWork = [
-  {
-    title: "Alpha Growth Platform",
-    desc: "An enterprise analytics system engineered for ReliaQuest, improving dashboard load speeds by 40% and SEO traffic flow by 115%.",
-    image: "/assets/member2.png", // reusing image as placeholder visual
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    title: "Sora Creative Showcase",
-    desc: "A stunning portfolio page designed for an international architectural group, yielding a 150% increase in lead generation rates.",
-    image: "/assets/member1.png", // reusing image as placeholder visual
-    tags: ["React", "Framer Motion", "CSS Modules"],
-  },
-];
+
+
+
+
+
+
 
 const processSteps = [
   {
@@ -147,91 +204,11 @@ export default function Home() {
 
 
 
-      {/* Services Grid Section */}
-      <section id="services" className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabel}>What We Do</span>
-            <h2 className={styles.sectionTitle}>
-              Tailored services for premium digital footprints
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              We craft high-performance web products that capture audiences,
-              rank on search engines, and drive bottom-line revenue.
-            </p>
-          </div>
-
-          <div className={styles.servicesGrid}>
-            {services.map((service, index) => (
-              <Link key={index} href={service.href} className={styles.serviceCard}>
-                <div
-                  className={styles.serviceIcon}
-                  style={{ backgroundColor: service.color }}
-                >
-                  {service.icon}
-                </div>
-                <div>
-                  <h3 className={styles.serviceTitle}>{service.title}</h3>
-                  <p className={styles.serviceDesc}>{service.desc}</p>
-                </div>
-                <span className={styles.serviceLinkText}>
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services Section */}
+      <ServicesSection />
 
       {/* Featured Work Section */}
-      <section id="work" className={`${styles.section} ${styles.sectionAlt}`}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Featured Work</span>
-            <h2 className={styles.sectionTitle}>
-              Real web projects, quantifiable business growth
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Take a look at how we helped leading companies redesign their
-              presence and multiply search traffic rates.
-            </p>
-          </div>
-
-          <div className={styles.workGrid}>
-            {featuredWork.map((project, index) => (
-              <div key={index} className={styles.workCard}>
-                <div className={styles.workImageWrapper}>
-                  {/* Backdrop shapes instead of missing visual assets to look extremely premium */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary-navy to-accent-blue opacity-90 flex items-center justify-center p-8">
-                    <div className="text-center">
-                      <span className="text-accent-yellow font-heading text-lg font-bold tracking-wider uppercase block mb-2">
-                        Case Study
-                      </span>
-                      <span className="text-white text-3xl font-extrabold font-heading">
-                        {project.title}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.workContent}>
-                  <div className={styles.workTags}>
-                    {project.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className={styles.workTag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className={styles.workTitle}>{project.title}</h3>
-                  <p className={styles.workDesc}>{project.desc}</p>
-                  <Link href="/work" className={styles.serviceLinkText}>
-                    Read Case Study <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ElegantCarousel />
 
       {/* Process Section */}
       <section id="process" className={styles.section}>
@@ -273,37 +250,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabel}>Testimonials</span>
-            <h2 className={styles.sectionTitle}>What our clients say about us</h2>
-          </div>
-
-          <div className={styles.testimonialContainer}>
-            <div className={styles.testimonialCard}>
-              <p className={styles.quoteText}>
-                &ldquo;Arc Digital Solutions rebuilt our marketing website completely in Next.js.
-                The immediate impact was unbelievable: page load speeds decreased by 60%, and our search exposure rankings saw a 142% organic growth spike within the first 4 months. Absolute game-changers!&rdquo;
-              </p>
-              <div className={styles.clientMeta}>
-                <div className={styles.clientAvatar}>
-                  <Image
-                    src="/assets/member1.png"
-                    alt="Sarah Jenkins"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className={styles.clientInfo}>
-                  <h4 className={styles.clientName}>Sarah Jenkins</h4>
-                  <p className={styles.clientRole}>VP of Growth, Alpha SaaS</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AnimatedTestimonialGrid testimonials={indianTestimonials} />
 
       {/* FAQ Section */}
       <section id="faq" className={`${styles.section} ${styles.sectionAlt}`}>

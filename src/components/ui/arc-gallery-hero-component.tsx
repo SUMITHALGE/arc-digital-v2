@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 // --- The ArcGalleryHero Component ---
 type ArcGalleryHeroProps = {
@@ -46,10 +46,12 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   secondaryBtnHref = '/work',
   badge = 'SEO Driven • Web Development • Digital Growth',
 }) => {
+  // Always start with the large (default) dimensions so SSR and client initial render match
   const [dimensions, setDimensions] = useState({
     radius: radiusLg,
     cardSize: cardSizeLg,
   });
+  const hasMounted = useRef(false);
 
   // Effect to handle responsive resizing of the arc and cards
   useEffect(() => {
@@ -64,7 +66,15 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
       }
     };
 
-    handleResize(); // Set initial size
+    // Only update on mount after first paint to avoid hydration mismatch
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      // Use requestAnimationFrame to defer the resize check past hydration
+      requestAnimationFrame(() => {
+        handleResize();
+      });
+    }
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [radiusLg, radiusMd, radiusSm, cardSizeLg, cardSizeMd, cardSizeSm]);
@@ -81,7 +91,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
         style={{
           width: '100%',
           // Give it a bit more height to prevent clipping
-          height: dimensions.radius * 1.2,
+          height: `${Math.round(dimensions.radius * 1.2)}px`,
         }}
       >
         {/* Center pivot for transforms - positioned at bottom center */}
@@ -91,23 +101,23 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
             const angle = startAngle + step * i; // degrees
             const angleRad = (angle * Math.PI) / 180;
             
-            // Calculate x and y positions on the arc
-            const x = Math.cos(angleRad) * dimensions.radius;
-            const y = Math.sin(angleRad) * dimensions.radius;
+            // Calculate x and y positions on the arc - round to 3 decimal places for consistency
+            const x = Math.round(Math.cos(angleRad) * dimensions.radius * 1000) / 1000;
+            const y = Math.round(Math.sin(angleRad) * dimensions.radius * 1000) / 1000;
             
             return (
               <div
                 key={i}
                 className="absolute opacity-0 arc-fade-in-up"
                 style={{
-                  width: dimensions.cardSize,
-                  height: dimensions.cardSize,
+                  width: `${dimensions.cardSize}px`,
+                  height: `${dimensions.cardSize}px`,
                   left: `calc(50% + ${x}px)`,
                   bottom: `${y}px`,
-                  transform: `translate(-50%, 50%)`,
+                  transform: 'translate(-50%, 50%)',
                   animationDelay: `${i * 100}ms`,
                   animationFillMode: 'forwards',
-                  zIndex: count - i,
+                  zIndex: `${count - i}`,
                 }}
               >
                 <div 
@@ -228,3 +238,5 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
     </section>
   );
 };
+
+
