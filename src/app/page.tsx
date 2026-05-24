@@ -2,120 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  ChevronDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ui/services";
 import ElegantCarousel from "@/components/ui/elegant-carousel";
-import { AnimatedTestimonialGrid, Testimonial } from "@/components/ui/testimonial-2";
+import TestimonialSlider from "@/components/ui/testimonial-slider";
 import styles from "./page.module.css";
-
-const indianTestimonials: Testimonial[] = [
-  {
-    imgSrc: "https://images.unsplash.com/photo-1507152832244-10d45a7e3b93?q=80&w=300&auto=format&fit=crop",
-    alt: "Aarav Sharma",
-    name: "Aarav Sharma",
-    role: "Founder, BharatTech",
-    category: "Web Development",
-    review: "Arc engineered our client portal from scratch using Next.js. The site is blazing fast, and our conversion rate went up by 45% in the first month."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop",
-    alt: "Priya Patel",
-    name: "Priya Patel",
-    role: "CTO, FinVantage",
-    category: "App Development",
-    review: "The app development team at Arc created an incredibly polished cross-platform product. Our active user metrics grew by 80% due to the seamless UX."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=300&auto=format&fit=crop",
-    alt: "Rohan Mehta",
-    name: "Rohan Mehta",
-    role: "Head of Growth, BloomRetail",
-    category: "SEO Services",
-    review: "Their SEO audit and custom sitemaps transformed our visibility. We saw a 140% spike in organic traffic and now rank on page one for major keywords."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1618018352910-72bdafdc52a6?q=80&w=300&auto=format&fit=crop",
-    alt: "Ananya Iyer",
-    name: "Ananya Iyer",
-    role: "Product Manager, HealthSet",
-    category: "Web Development",
-    review: "Next.js performance optimizations implemented by Arc lowered our bounce rates by 35%. Dynamic loading and responsive layouts are top notch."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300&auto=format&fit=crop",
-    alt: "Vikram Singh",
-    name: "Vikram Singh",
-    role: "CEO, EduPulse",
-    category: "App Development",
-    review: "Arc built a secure, scalable learning app that handles 50k+ students. Zero crashes and exceptional design. Highly recommend their app dev services!"
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop",
-    alt: "Neha Gupta",
-    name: "Neha Gupta",
-    role: "Marketing Director, TravelInd",
-    category: "SEO Services",
-    review: "Integrating custom schema data and optimizing Core Web Vitals boosted our Google ranking rapidly. Organic lead generation has doubled."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&auto=format&fit=crop",
-    alt: "Aditya Joshi",
-    name: "Aditya Joshi",
-    role: "Co-Founder, ZenLogistics",
-    category: "Web Development",
-    review: "They redesigned our legacy dashboard into a modern, responsive web application. The dashboard load times dropped from 8s to under 1.2s."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=300&auto=format&fit=crop",
-    alt: "Ishita Sen",
-    name: "Ishita Sen",
-    role: "VP Engineering, PayZone",
-    category: "App Development",
-    review: "A complex fintech app developed with security-first practices. Arc delivered a premium, high-fidelity experience that exceeded our expectations."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
-    alt: "Kabir Verma",
-    name: "Kabir Verma",
-    role: "E-commerce Director, SpiceRoute",
-    category: "SEO Services",
-    review: "Our organic search revenue grew by 115% following Arc's SEO schema audits. They made our product listings stand out in search results."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop",
-    alt: "Meera Nair",
-    name: "Meera Nair",
-    role: "Brand Lead, CozyRooms",
-    category: "Web Development",
-    review: "Working with Arc was a breeze. They brought our design vision to life with perfect responsiveness and clean Next.js architecture."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    alt: "Rahul Rao",
-    name: "Rahul Rao",
-    role: "Founder, QuickBite",
-    category: "App Development",
-    review: "Our new food-delivery mobile interface is exceptionally fluid. Order completion rate rose by 50% since launch. Phenomenal engineering."
-  },
-  {
-    imgSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&auto=format&fit=crop",
-    alt: "Diya Bose",
-    name: "Diya Bose",
-    role: "SEO Specialist, NewsVibe",
-    category: "SEO Services",
-    review: "Arc's technical SEO approach has been stellar. Indexation speeds for new articles went from days to minutes with real-time site crawling."
-  }
-];
-
-
-
-
-
 
 
 
@@ -250,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <AnimatedTestimonialGrid testimonials={indianTestimonials} />
+      <TestimonialSlider />
 
       {/* FAQ Section */}
       <section id="faq" className={`${styles.section} ${styles.sectionAlt}`}>
