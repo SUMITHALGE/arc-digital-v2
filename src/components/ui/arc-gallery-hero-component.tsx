@@ -101,11 +101,11 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
           {images.map((src, i) => {
             const angle = startAngle + step * i; // degrees
             const angleRad = (angle * Math.PI) / 180;
-            
+
             // Calculate x and y positions on the arc - round to 3 decimal places for consistency
             const x = Math.round(Math.cos(angleRad) * dimensions.radius * 1000) / 1000;
             const y = Math.round(Math.sin(angleRad) * dimensions.radius * 1000) / 1000;
-            
+
             return (
               <div
                 key={i}
@@ -172,7 +172,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
           <p
             style={{
               fontSize: 'var(--text-subheading)',
-              color: 'var(--color-slate-gray)',
+              color: 'var(--color-webflow-blue)',
               lineHeight: 'var(--leading-subheading)',
               margin: '0 0 36px',
             }}
@@ -202,7 +202,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
             >
               {primaryBtnText}
             </a>
-            {/* Ghost CTA — Ink Black border, 4px radius */}
+            {/* Ghost CTA — Webflow Blue hover */}
             <a
               href={secondaryBtnHref}
               style={{
@@ -215,17 +215,25 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
                 textDecoration: 'none',
                 display: 'inline-block',
                 border: '1px solid var(--color-ink-black)',
-                transition: 'background-color 0.15s ease, color 0.15s ease',
+                transition: 'background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-ink-black)'; e.currentTarget.style.color = 'var(--color-canvas-white)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--color-ink-black)'; }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--color-ink-black)';
+                e.currentTarget.style.color = 'var(--color-canvas-white)';
+                e.currentTarget.style.borderColor = 'var(--color-webflow-blue)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--color-ink-black)';
+                e.currentTarget.style.borderColor = 'var(--color-ink-black)';
+              }}
             >
               {secondaryBtnText}
             </a>
           </div>
         </div>
       </div>
-      
+
       {/* CSS for animations */}
       <style>{`
         @keyframes arc-fade-in-up {

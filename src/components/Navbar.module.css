@@ -160,8 +160,12 @@
   transition: background-color 0.15s ease;
 }
 
+:root {
+  --hover-bg-color: #e2eafc;
+}
+
 .dropdownItem:hover {
-  background-color: var(--color-whisper-gray);
+  background-color: var(--hover-bg-color);
 }
 
 .dropdownItemTitle {
@@ -326,9 +330,11 @@
   .logoArc {
     font-size: 26px;
   }
+
   .logoDivider {
     height: 22px;
   }
+
   .logoSub {
     font-size: 8px;
   }

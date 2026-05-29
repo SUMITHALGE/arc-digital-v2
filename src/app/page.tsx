@@ -12,12 +12,8 @@ import styles from "./page.module.css";
 
 
 
-const stats = [
-  { number: "95+", label: "Average SEO Score", desc: "Outperforming search engines" },
-  { number: "+142%", label: "Organic Traffic Growth", desc: "Average increase in 6 months" },
-  { number: "40%+", label: "Conversion Rate Lift", desc: "For revamped web UI layouts" },
-  { number: "200+", label: "Projects Orchestrated", desc: "Delivered on-time & within budget" },
-];
+
+
 
 const faqData = [
   {
@@ -80,20 +76,7 @@ export default function Home() {
       {/* Featured Work Section */}
       <ElegantCarousel />
 
-      {/* Stats Section */}
-      <section className={`${styles.section} ${styles.sectionAlt}`}>
-        <div className={styles.container}>
-          <div className={styles.statsGrid}>
-            {stats.map((stat, index) => (
-              <div key={index} className={styles.statCard}>
-                <span className={styles.statNumber}>{stat.number}</span>
-                <span className={styles.statLabel}>{stat.label}</span>
-                <span className={styles.statDesc}>{stat.desc}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Testimonials Section */}
       <TestimonialSlider />

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+
+
 
 // ── Nav link data matching the Navbar routes ──────────────────────────────────
 const services = [
@@ -29,11 +30,12 @@ const legal = [
 // ── Social icons ──────────────────────────────────────────────────────────────
 const socials = [
   {
-    label: "Twitter / X",
-    href: "https://twitter.com/arcdigital",
+    label: "WhatsApp",
+    href: "https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions",
     icon: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.121 1.532 5.854L.057 23.882a.5.5 0 0 0 .61.61l6.083-1.49A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 0 1-5.031-1.371l-.361-.214-3.737.915.944-3.64-.235-.374A9.861 9.861 0 0 1 2.1 12c0-5.468 4.432-9.9 9.9-9.9 5.468 0 9.9 4.432 9.9 9.9 0 5.468-4.432 9.9-9.9 9.9z" />
       </svg>
     ),
   },
@@ -59,33 +61,10 @@ const socials = [
       </svg>
     ),
   },
-  {
-    label: "GitHub",
-    href: "https://github.com/arcdigital",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-        <path d="M9 18c-4.51 2-5-2-7-2" />
-      </svg>
-    ),
-  },
 ];
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-    setTimeout(() => {
-      setStatus("success");
-      setEmail("");
-    }, 1000);
-  };
-
   return (
     <footer
       style={{
@@ -139,34 +118,59 @@ export default function Footer() {
 
       {/* ── Main footer body ── */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.8fr] gap-12 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-14">
 
           {/* ── Brand column ── */}
           <div className="flex flex-col gap-6">
-            {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-3" aria-label="Arc Digital Solutions home">
-              <div className="relative w-10 h-10 shrink-0">
-                <Image
-                  src="/assets/logo.svg"
-                  alt="Arc Digital Solutions"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col leading-none" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+            {/* Logo — identical to Navbar */}
+            <Link
+              href="/"
+              aria-label="Arc Digital Solution"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                textDecoration: 'none',
+                userSelect: 'none',
+              }}
+            >
               <span
-                className="text-xl font-semibold tracking-tight"
-                style={{ color: 'var(--color-ink-black)' }}
+                style={{
+                  fontFamily: "var(--font-barlow-condensed), 'Arial Narrow', Arial, sans-serif",
+                  fontSize: '32px',
+                  fontWeight: 800,
+                  lineHeight: 1,
+                  letterSpacing: '-0.01em',
+                  color: 'var(--color-ink-black)',
+                  textTransform: 'uppercase',
+                }}
               >
-                Arc Digital
+                ARC
               </span>
               <span
-                className="text-[11px] font-semibold uppercase tracking-widest"
-                style={{ color: 'var(--color-webflow-blue)' }}
+                aria-hidden="true"
+                style={{
+                  display: 'block',
+                  width: '1px',
+                  height: '28px',
+                  background: 'var(--color-outline-gray)',
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: 'var(--font-inter), ui-sans-serif, sans-serif',
+                  fontSize: '9px',
+                  fontWeight: 600,
+                  lineHeight: 1.5,
+                  color: 'var(--color-ink-black)',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  opacity: 0.45,
+                }}
               >
-                Solution
+                Digital<br />Solution
               </span>
-            </div>
             </Link>
 
             {/* Tagline */}
@@ -174,7 +178,7 @@ export default function Footer() {
               className="text-sm leading-relaxed max-w-xs"
               style={{ color: "var(--gray-500)" }}
             >
-              We engineer high-performance, SEO-first digital experiences — websites, apps, and growth strategies that convert visitors into loyal customers.
+              We engineer high-performance, SEO-first digital experiences websites, apps, and growth strategies that convert visitors into loyal customers.
             </p>
 
             {/* Contact snippets */}
@@ -317,96 +321,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Newsletter column ── */}
-          <div className="flex flex-col gap-5">
-            <div>
-              <h3
-                className="text-xs font-extrabold uppercase tracking-widest mb-2"
-                style={{ color: "var(--gray-400)" }}
-              >
-                Newsletter
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
-                Get the latest insights on web performance, SEO strategy, and digital growth — straight to your inbox.
-              </p>
-            </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={status === "loading" || status === "success"}
-                  className="flex-1 min-w-0 text-sm px-4 py-3 rounded-xl outline-none transition-all duration-200"
-                  style={{
-                    background: "var(--gray-100)",
-                    border: "1px solid var(--gray-200)",
-                    color: "var(--primary-navy)",
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "var(--accent-blue)";
-                    e.currentTarget.style.background = "rgba(47,101,246,0.04)";
-                    e.currentTarget.style.boxShadow = "0 0 0 3px rgba(47,101,246,0.08)";
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = "var(--gray-200)";
-                    e.currentTarget.style.background = "var(--gray-100)";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading" || status === "success"}
-                  className="shrink-0 w-11 h-11 flex items-center justify-center rounded-xl text-white font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{
-                    background: "linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%)",
-                  }}
-                  aria-label="Subscribe"
-                >
-                  {status === "loading" ? (
-                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                  ) : (
-                    <Send className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-
-              {status === "success" && (
-                <p
-                  className="text-xs font-semibold flex items-center gap-1.5"
-                  style={{ color: "var(--accent-blue)" }}
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                  You&apos;re in! Check your inbox shortly.
-                </p>
-              )}
-            </form>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-2 mt-1">
-              {["200+ Projects", "98 Lighthouse Score", "SEO-First"].map((badge) => (
-                <span
-                  key={badge}
-                  className="text-[10px] font-bold uppercase tracking-wider rounded-full px-2.5 py-1"
-                  style={{
-                    background: "rgba(47,101,246,0.07)",
-                    border: "1px solid rgba(47,101,246,0.18)",
-                    color: "var(--accent-blue)",
-                  }}
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* ── Divider ── */}
