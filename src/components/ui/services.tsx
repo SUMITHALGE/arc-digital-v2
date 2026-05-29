@@ -54,23 +54,25 @@ const ServicesSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-14 sm:mb-18">
           <span
-            className="text-sm font-bold uppercase tracking-wider mb-3 block"
-            style={{ color: "var(--accent-blue)" }}
+            className="text-[11px] font-semibold uppercase tracking-[0.12em] mb-3 block"
+            style={{ color: 'var(--color-webflow-blue)' }}
           >
             What We Do
           </span>
           <h2
-            className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold mb-4 tracking-tight leading-tight"
+            className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold mb-4"
             style={{
-              fontFamily: "var(--font-heading)",
-              color: "var(--primary-navy)",
+              fontFamily: 'var(--font-inter), sans-serif',
+              color: 'var(--color-ink-black)',
+              letterSpacing: 'var(--tracking-heading-lg)',
+              lineHeight: 'var(--leading-heading)',
             }}
           >
             How Can We Help?
           </h2>
           <p
-            className="text-lg sm:text-xl font-light max-w-xl mx-auto"
-            style={{ color: "var(--gray-500)" }}
+            className="text-[var(--text-subheading)] max-w-xl mx-auto"
+            style={{ color: 'var(--color-slate-gray)', lineHeight: 'var(--leading-subheading)' }}
           >
             Let&apos;s turn your vision into something amazing — tailored
             services for premium digital footprints.
@@ -83,21 +85,19 @@ const ServicesSection: React.FC = () => {
             <Link
               key={index}
               href={service.href}
-              className="group rounded-3xl p-6 sm:p-8 flex flex-col h-[360px] sm:h-[380px] transition-all duration-300 no-underline relative overflow-hidden"
+              className="group p-6 sm:p-8 flex flex-col h-[360px] sm:h-[380px] transition-all duration-200 no-underline relative overflow-hidden"
               style={{
-                backgroundColor: "var(--gray-50)",
-                border: "1px solid rgba(226, 232, 240, 0.8)",
+                backgroundColor: 'var(--color-canvas-white)',
+                border: '1px solid var(--color-outline-gray)',
+                borderRadius: 'var(--radius-cards)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--gray-100)";
-                e.currentTarget.style.boxShadow =
-                  "0 20px 40px rgba(13, 30, 54, 0.06)";
-                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = 'var(--shadow-xl)';
+                e.currentTarget.style.borderColor = 'var(--color-ink-black)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--gray-50)";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = 'var(--color-outline-gray)';
               }}
             >
               {/* Image Container */}
@@ -129,24 +129,25 @@ const ServicesSection: React.FC = () => {
                 <h3
                   className="text-left text-lg sm:text-xl font-semibold mb-1"
                   style={{
-                    fontFamily: "var(--font-heading)",
-                    color: "var(--primary-navy)",
+                    fontFamily: 'var(--font-inter), sans-serif',
+                    color: 'var(--color-ink-black)',
+                    letterSpacing: 'var(--tracking-heading-lg)',
                   }}
                 >
                   {service.title}
                 </h3>
                 <p
                   className="text-left text-sm leading-relaxed m-0"
-                  style={{ color: "var(--gray-500)" }}
+                  style={{ color: 'var(--color-slate-gray)' }}
                 >
                   {service.description}
                 </p>
               </div>
 
-              {/* Hover accent line at the top */}
+              {/* Bottom accent line */}
               <div
-                className="absolute top-0 left-0 w-full h-1 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"
-                style={{ backgroundColor: "var(--accent-blue)" }}
+                className="absolute bottom-0 left-0 w-full h-[2px] transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"
+                style={{ backgroundColor: 'var(--color-webflow-blue)' }}
               />
             </Link>
           ))}

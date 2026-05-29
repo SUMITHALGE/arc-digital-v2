@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ui/services";
@@ -11,28 +10,7 @@ import styles from "./page.module.css";
 
 
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Discovery & Audit",
-    desc: "We analyze your tech constraints, current ranking scores, and competitive landscape to engineer an absolute blueprint for growth.",
-  },
-  {
-    step: "02",
-    title: "Design & UX Blueprint",
-    desc: "We mockup high-fidelity visuals following modern styles, interactive patterns, and responsive layout structures.",
-  },
-  {
-    step: "03",
-    title: "Development & Speed",
-    desc: "We code custom Next.js configurations optimized for speed, semantic HTML headers, and clean search index scripts.",
-  },
-  {
-    step: "04",
-    title: "Launch & SEO Ranking",
-    desc: "We deploy with automated sitemaps, structured JSON schemas, and monitor Core Web Vitals to guarantee optimal search performance.",
-  },
-];
+
 
 const stats = [
   { number: "95+", label: "Average SEO Score", desc: "Outperforming search engines" },
@@ -71,10 +49,10 @@ export default function Home() {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Arc Digital Solutions",
-    "url": "https://arcdigitalsolutions.com",
-    "logo": "https://arcdigitalsolutions.com/assets/logo.png",
-    "description": "Arc Digital Solutions builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+    "name": "Arc Digital Solution",
+    "url": "https://arcdigitalsolution.in",
+    "logo": "https://arcdigitalsolution.in/assets/logo.png",
+    "description": "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
     "sameAs": [
       "https://twitter.com/arcdigital",
       "https://instagram.com/arcdigital",
@@ -101,30 +79,6 @@ export default function Home() {
 
       {/* Featured Work Section */}
       <ElegantCarousel />
-
-      {/* Process Section */}
-      <section id="process" className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabel}>Our Methodology</span>
-            <h2 className={styles.sectionTitle}>Our step-by-step roadmap to success</h2>
-            <p className={styles.sectionSubtitle}>
-              We implement an agile, security-first layout workflow designed to
-              deliver fast, error-free deployments.
-            </p>
-          </div>
-
-          <div className={styles.processGrid}>
-            {processSteps.map((step, index) => (
-              <div key={index} className={styles.processCard}>
-                <span className={styles.processStep}>{step.step}</span>
-                <h3 className={styles.processCardTitle}>{step.title}</h3>
-                <p className={styles.processCardDesc}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
@@ -201,9 +155,9 @@ export default function Home() {
                 Contact us today for a free discovery consultation and let&apos;s
                 map out an SEO-first layout plan to multiply your business growth.
               </p>
-              <Link href="/contact" className={styles.ctaBtn}>
+              <a href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" target="_blank" rel="noopener noreferrer" className={styles.ctaBtn}>
                 Start Project Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>

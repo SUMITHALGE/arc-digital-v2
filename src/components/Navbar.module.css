@@ -1,61 +1,82 @@
+/* ═══════════════════════════════════════════════
+   NAVBAR — Webflow Design System
+   ═══════════════════════════════════════════════ */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 64px;
   z-index: 50;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-outline-gray);
+  transition: box-shadow 0.2s ease;
 }
 
 .headerScrolled {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  height: 70px;
-  box-shadow: 0 4px 20px rgba(13, 30, 54, 0.05);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: var(--shadow-lg);
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--spacing-24);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* ─── LOGO WORDMARK ─────────────────────────────── */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--primary-navy);
+  gap: 14px;
   text-decoration: none;
   z-index: 100;
+  transition: opacity 0.2s ease;
+  user-select: none;
 }
 
-.logoText {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+.logo:hover {
+  opacity: 0.75;
 }
 
-.logoSub {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--gray-500);
-  letter-spacing: 0.05em;
+.logoArc {
+  font-family: var(--font-barlow-condensed), 'Arial Narrow', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-ink-black);
   text-transform: uppercase;
 }
 
+.logoDivider {
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: var(--color-outline-gray);
+  flex-shrink: 0;
+}
+
+.logoSub {
+  font-family: var(--font-inter), ui-sans-serif, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-ink-black);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+/* ─── DESKTOP NAV ───────────────────────────────── */
 .nav {
   display: none;
 }
@@ -64,24 +85,25 @@
   .nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: var(--spacing-8);
   }
 }
 
 .navLink {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--primary-navy);
+  color: var(--color-ink-black);
   text-decoration: none;
-  transition: color 0.2s ease;
+  padding: 20px 12px 19px;
+  transition: color 0.15s ease;
   position: relative;
-  padding: 8px 0;
 }
 
 .navLink:hover {
-  color: var(--accent-blue);
+  color: var(--color-webflow-blue);
 }
 
+/* ─── DROPDOWN ──────────────────────────────────── */
 .dropdownWrapper {
   position: relative;
 }
@@ -94,81 +116,79 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--primary-navy);
-  padding: 8px 0;
-  transition: color 0.2s ease;
+  color: var(--color-ink-black);
+  padding: 20px 12px 19px;
+  transition: color 0.15s ease;
 }
 
 .dropdownTrigger:hover {
-  color: var(--accent-blue);
+  color: var(--color-webflow-blue);
 }
 
 .dropdownMenu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 12px;
-  padding: 8px;
-  margin-top: 10px;
-  box-shadow: 0 10px 30px rgba(13, 30, 54, 0.08);
+  background: var(--color-canvas-white);
+  border: 1px solid var(--color-outline-gray);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
 }
 
-.dropdownWrapper:hover .dropdownMenu,
-.dropdownMenuVisible {
+.dropdownWrapper:hover .dropdownMenu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
 }
 
 .dropdownItem {
   display: flex;
   flex-direction: column;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-default);
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
 .dropdownItem:hover {
-  background-color: var(--gray-100);
+  background-color: var(--color-whisper-gray);
 }
 
 .dropdownItemTitle {
   font-size: 14px;
   font-weight: 600;
-  color: var(--primary-navy);
+  color: var(--color-ink-black);
 }
 
 .dropdownItemDesc {
   font-size: 11px;
-  color: var(--gray-500);
+  color: var(--color-slate-gray);
   margin-top: 2px;
 }
 
+/* ─── PRIMARY CTA BUTTON ────────────────────────── */
 .ctaBtn {
   display: none;
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  padding: 10px 24px;
-  border-radius: 9999px;
-  font-size: 15px;
+  background-color: var(--color-webflow-blue);
+  color: var(--color-canvas-white);
+  padding: 8px 16px;
+  border-radius: var(--radius-buttons);
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid var(--primary-navy);
-  box-shadow: 0 4px 14px rgba(13, 30, 54, 0.15);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  border: none;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -178,24 +198,28 @@
 }
 
 .ctaBtn:hover {
-  background-color: #ffffff;
-  color: var(--primary-navy);
-  box-shadow: 0 6px 20px rgba(13, 30, 54, 0.2);
-  transform: translateY(-1px);
+  background-color: #0f5fd4;
+  box-shadow: var(--shadow-lg);
 }
 
-/* Mobile Navigation Hamburger button */
+/* ─── MOBILE TOGGLE ─────────────────────────────── */
 .menuBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: none;
-  border: none;
+  border: 1px solid var(--color-outline-gray);
+  border-radius: var(--radius-default);
   cursor: pointer;
-  color: var(--primary-navy);
+  color: var(--color-ink-black);
   z-index: 100;
+  transition: background-color 0.15s ease;
+}
+
+.menuBtn:hover {
+  background-color: var(--color-whisper-gray);
 }
 
 @media (min-width: 768px) {
@@ -204,23 +228,22 @@
   }
 }
 
-/* Mobile Menu Panel */
+/* ─── MOBILE DRAWER ─────────────────────────────── */
 .mobileMenu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(15px);
+  background-color: var(--color-canvas-white);
   z-index: 90;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
-  padding: 40px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: var(--spacing-32);
+  padding: var(--spacing-40);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
@@ -233,40 +256,41 @@
 }
 
 .mobileNavLink {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary-navy);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-ink-black);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.15s ease;
+  letter-spacing: var(--tracking-heading-lg);
 }
 
 .mobileNavLink:hover {
-  color: var(--accent-blue);
+  color: var(--color-webflow-blue);
 }
 
 .mobileDropdownTrigger {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary-navy);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-ink-black);
   background: none;
   border: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-8);
   cursor: pointer;
+  letter-spacing: var(--tracking-heading-lg);
 }
 
 .mobileSubMenu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin-top: 8px;
-  background-color: var(--gray-100);
-  padding: 16px;
-  border-radius: 12px;
+  gap: var(--spacing-16);
+  background-color: var(--color-whisper-gray);
+  padding: var(--spacing-16);
+  border-radius: var(--radius-default);
   width: 100%;
   max-width: 300px;
 }
@@ -274,21 +298,38 @@
 .mobileSubNavLink {
   font-size: 16px;
   font-weight: 500;
-  color: var(--primary-navy);
+  color: var(--color-ink-black);
   text-decoration: none;
 }
 
 .mobileCta {
-  margin-top: 20px;
+  margin-top: var(--spacing-20);
   width: 100%;
-  max-width: 250px;
+  max-width: 260px;
   text-align: center;
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  padding: 14px;
-  border-radius: 9999px;
+  background-color: var(--color-webflow-blue);
+  color: var(--color-canvas-white);
+  padding: 14px var(--spacing-24);
+  border-radius: var(--radius-buttons);
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   display: block;
+  transition: background-color 0.15s ease;
+}
+
+.mobileCta:hover {
+  background-color: #0f5fd4;
+}
+
+@media (max-width: 767px) {
+  .logoArc {
+    font-size: 26px;
+  }
+  .logoDivider {
+    height: 22px;
+  }
+  .logoSub {
+    font-size: 8px;
+  }
 }

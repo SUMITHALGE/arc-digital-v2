@@ -1,8 +1,10 @@
-<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Stylized "A" — two bold legs -->
-  <path d="M18 82 L44 22 C46.5 16.5 53.5 16.5 56 22 L82 82" stroke="#0d1e36" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- The "Arc" — a smooth curved bridge across the A -->
-  <path d="M30 62 Q50 38 70 62" stroke="#2f65f6" stroke-width="8" stroke-linecap="round" fill="none"/>
-  <!-- Apex dot accent -->
-  <circle cx="50" cy="18" r="6" fill="#2f65f6"/>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer arc ring (bold) -->
+  <path d="M8 38 C8 20 40 20 40 38" stroke="#0d1e36" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Inner sharp chevron / A peak -->
+  <path d="M16 38 L24 14 L32 38" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Crossbar accent -->
+  <path d="M19.5 30 L28.5 30" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Bold dot accent at apex -->
+  <circle cx="24" cy="11" r="3" fill="#2563eb"/>
 </svg>

@@ -12,7 +12,7 @@ function cn(...classes: (string | undefined | null | boolean | { [key: string]: 
       if (typeof c === "string") return [c];
       if (typeof c === "object") {
         return Object.entries(c)
-          .filter(([_, value]) => !!value)
+          .filter(([, value]) => !!value)
           .map(([key]) => key);
       }
       return [];

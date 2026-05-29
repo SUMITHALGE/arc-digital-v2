@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import styles from "../services.module.css";
 
 export const metadata: Metadata = {
-  title: "SEO Services | Arc Digital Solutions",
+  title: "SEO Services | Arc Digital Solution",
   description:
     "Dominate Google and search engines with our technical SEO audits, semantic headers structure, and custom schema markups. Grow organic traffic.",
 };
@@ -41,7 +41,7 @@ export default function SeoServicesPage() {
     "provider": {
       "@type": "Organization",
       "name": "Arc Digital Solutions",
-      "url": "https://arcdigitalsolutions.com"
+      "url": "https://arcdigitalsolutions.in"
     },
     "description": "Technical search engine optimization audits, organic keyword research, sitemaps, and rich-snippet schema injections."
   };
@@ -91,12 +91,20 @@ export default function SeoServicesPage() {
                   Search Console Dashboards Set Up
                 </li>
               </ul>
-              <Link
-                href="/contact"
-                className="mt-8 block text-center bg-primary-navy hover:bg-accent-blue text-white font-bold py-3.5 px-6 rounded-full transition-colors"
+              <a
+                href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20SEO%20Services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block text-center text-white font-semibold py-3 px-6 transition-colors text-sm"
+                style={{
+                  backgroundColor: 'var(--color-webflow-blue)',
+                  borderRadius: 'var(--radius-buttons)',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0f5fd4')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-webflow-blue)')}
               >
                 Inquire About SEO Services
-              </Link>
+              </a>
             </div>
           </div>
 

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
 interface PortfolioItem {
@@ -95,12 +96,15 @@ const ImageGallery: React.FC = () => {
                 flexBasis: 0,
                 minWidth: 0,
                 border: "1px solid rgba(226, 232, 240, 0.6)",
+                position: "relative",
               }}
             >
-              <img
-                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              <Image
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 src={item.image}
                 alt={item.title}
+                sizes="(max-width: 640px) 100vw, 20vw"
               />
               {/* Hover Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
@@ -129,12 +133,14 @@ const ImageGallery: React.FC = () => {
             <div
               key={idx}
               className="relative group rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(226, 232, 240, 0.6)" }}
+              style={{ border: "1px solid rgba(226, 232, 240, 0.6)", position: "relative", height: "224px" }}
             >
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="w-full h-56 object-cover object-top"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 640px) 50vw, 0vw"
               />
               <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <h3

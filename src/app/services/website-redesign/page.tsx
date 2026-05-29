@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import styles from "../services.module.css";
 
 export const metadata: Metadata = {
-  title: "Website Redesign Services | Arc Digital Solutions",
+  title: "Website Redesign Services | Arc Digital Solution",
   description:
     "Transform your outdated interface into a premium, high-converting digital experience. We audit user experience patterns and rebuild for speed.",
 };
@@ -41,7 +41,7 @@ export default function WebsiteRedesignPage() {
     "provider": {
       "@type": "Organization",
       "name": "Arc Digital Solutions",
-      "url": "https://arcdigitalsolutions.com"
+      "url": "https://arcdigitalsolutions.in"
     },
     "description": "Premium layout modernisation, UX audit wireframing, and responsive frontend speed reconstructions."
   };
@@ -91,12 +91,20 @@ export default function WebsiteRedesignPage() {
                   Retained SEO Redirect Configurations
                 </li>
               </ul>
-              <Link
-                href="/contact"
-                className="mt-8 block text-center bg-primary-navy hover:bg-accent-blue text-white font-bold py-3.5 px-6 rounded-full transition-colors"
+              <a
+                href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Website%20Redesign"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block text-center text-white font-semibold py-3 px-6 transition-colors text-sm"
+                style={{
+                  backgroundColor: 'var(--color-webflow-blue)',
+                  borderRadius: 'var(--radius-buttons)',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0f5fd4')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-webflow-blue)')}
               >
                 Inquire About Website Redesign
-              </Link>
+              </a>
             </div>
           </div>
 

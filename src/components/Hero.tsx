@@ -38,7 +38,7 @@ export default function Hero() {
       headline="Build websites that look premium and generate real business growth"
       subheadline="Arc Digital Solutions creates fast, SEO-first websites designed to attract traffic, convert leads, and help businesses grow."
       primaryBtnText="Start Project"
-      primaryBtnHref="/contact"
+      primaryBtnHref="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions"
       secondaryBtnText="View Work"
       secondaryBtnHref="/work"
       badge="SEO Driven • Web Development • Digital Growth"

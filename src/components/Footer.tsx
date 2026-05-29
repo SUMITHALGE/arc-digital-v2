@@ -17,9 +17,8 @@ const services = [
 const company = [
   { label: "About Us", href: "/about" },
   { label: "Our Work", href: "/work" },
-  { label: "Process", href: "/process" },
   { label: "FAQs", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" },
 ];
 
 const legal = [
@@ -104,32 +103,28 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p
-              className="text-xs font-bold uppercase tracking-widest mb-1"
-              style={{ color: "var(--accent-blue)" }}
+              className="text-[11px] font-semibold uppercase tracking-[0.12em] mb-1"
+              style={{ color: 'var(--color-webflow-blue)' }}
             >
               Ready to grow?
             </p>
             <h2
-              className="text-2xl sm:text-3xl font-extrabold leading-tight"
-              style={{ fontFamily: "var(--font-heading)", color: "var(--primary-navy)" }}
+              className="text-2xl sm:text-3xl font-semibold leading-tight"
+              style={{ fontFamily: 'var(--font-inter), sans-serif', color: 'var(--color-ink-black)', letterSpacing: 'var(--tracking-heading-lg)' }}
             >
               Let&apos;s build something{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%)",
-                }}
-              >
+              <span style={{ color: 'var(--color-webflow-blue)' }}>
                 exceptional
               </span>
             </h2>
-            <p className="text-sm mt-2" style={{ color: "var(--gray-500)" }}>
+            <p className="text-sm mt-2" style={{ color: 'var(--color-slate-gray)' }}>
               Premium websites · Scalable apps · SEO growth
             </p>
           </div>
-          <Link
-            href="/contact"
+          <a
+            href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 shrink-0"
             style={{
               background: "linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%)",
@@ -138,7 +133,7 @@ export default function Footer() {
           >
             Start a Project
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -158,20 +153,20 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col leading-none" style={{ fontFamily: "var(--font-heading)" }}>
-                <span
-                  className="text-xl font-extrabold tracking-tight"
-                  style={{ color: "var(--primary-navy)" }}
-                >
-                  Arc Digital
-                </span>
-                <span
-                  className="text-[11px] font-semibold uppercase tracking-widest"
-                  style={{ color: "var(--accent-blue)" }}
-                >
-                  Solutions
-                </span>
-              </div>
+              <div className="flex flex-col leading-none" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+              <span
+                className="text-xl font-semibold tracking-tight"
+                style={{ color: 'var(--color-ink-black)' }}
+              >
+                Arc Digital
+              </span>
+              <span
+                className="text-[11px] font-semibold uppercase tracking-widest"
+                style={{ color: 'var(--color-webflow-blue)' }}
+              >
+                Solution
+              </span>
+            </div>
             </Link>
 
             {/* Tagline */}
@@ -187,19 +182,19 @@ export default function Footer() {
               <li className="flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-blue)" }} />
                 <a
-                  href="mailto:hello@arcdigitalsolutions.com"
+                  href="mailto:hello@arcdigitalsolutions.in"
                   className="transition-colors duration-200 hover:underline"
                   style={{ color: "var(--gray-500)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-blue)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gray-500)")}
                 >
-                  hello@arcdigitalsolutions.com
+                  hello@arcdigitalsolutions.in
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-blue)" }} />
                 <a
-                  href="tel:+919876543210"
+                  href="https://wa.me/917719902074"
                   className="transition-colors duration-200"
                   style={{ color: "var(--gray-500)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-blue)")}
@@ -427,10 +422,10 @@ export default function Footer() {
         >
           <p>
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold" style={{ color: "var(--gray-600)" }}>
-              Arc Digital Solutions
+            <span className="font-semibold" style={{ color: 'var(--color-ink-black)' }}>
+              Arc Digital Solution
             </span>
-            . All rights reserved. Built with Next.js &amp; ❤️ in India.
+            . All rights reserved. Built with Next.js & ❤️ in India.
           </p>
           <div className="flex items-center gap-5">
             {legal.map((item) => (

@@ -69,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className={styles.itemLabel}>Email Us</div>
-                  <div className={styles.itemVal}>agency@arcdigitalsolutions.com</div>
+                  <div className={styles.itemVal}>agency@arcdigitalsolutions.in</div>
                 </div>
               </div>
 

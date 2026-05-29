@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 
 // --- The ArcGalleryHero Component ---
 type ArcGalleryHeroProps = {
@@ -41,7 +42,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   headline = 'Build websites that look premium and generate real business growth',
   subheadline = 'Arc Digital Solutions creates fast, SEO-first websites designed to attract traffic, convert leads, and help businesses grow.',
   primaryBtnText = 'Start Project',
-  primaryBtnHref = '/contact',
+  primaryBtnHref = 'https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions',
   secondaryBtnText = 'View Work',
   secondaryBtnHref = '/work',
   badge = 'SEO Driven • Web Development • Digital Growth',
@@ -84,7 +85,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   const step = (endAngle - startAngle) / (count - 1);
 
   return (
-    <section className={`relative overflow-hidden bg-[var(--gray-50)] text-[var(--primary-navy)] min-h-screen flex flex-col ${className}`}>
+    <section className={`relative overflow-hidden bg-[var(--color-canvas-white)] text-[var(--color-ink-black)] min-h-screen flex flex-col ${className}`}>
       {/* Background ring container that controls geometry */}
       <div
         className="relative mx-auto"
@@ -120,19 +121,17 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
                   zIndex: `${count - i}`,
                 }}
               >
-                <div 
+                <div
                   className="rounded-2xl shadow-xl overflow-hidden ring-1 ring-[var(--gray-200)] bg-white transition-transform hover:scale-105 w-full h-full"
-                  style={{ transform: `rotate(${angle / 4}deg)` }}
+                  style={{ transform: `rotate(${angle / 4}deg)`, position: 'relative' }}
                 >
-                  <img
+                  <Image
                     src={src}
                     alt={`Project showcase ${i + 1}`}
+                    fill
                     className="block w-full h-full object-cover"
                     draggable={false}
-                    // Add a fallback in case an image fails to load
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://placehold.co/400x400/0d1e36/e2e8f0?text=Arc`;
-                    }}
+                    sizes="120px"
                   />
                 </div>
               </div>
@@ -144,57 +143,82 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
       {/* Content positioned below the arc */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64">
         <div className="text-center max-w-2xl px-6 opacity-0 arc-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
-          {/* Badge */}
-          <div className="inline-flex items-center mb-6 px-4 py-2 rounded-full text-[13px] font-semibold tracking-wide"
-            style={{ 
-              backgroundColor: 'rgba(47, 101, 246, 0.08)', 
-              border: '1px solid rgba(47, 101, 246, 0.15)', 
-              color: 'var(--accent-blue)' 
-            }}>
+          {/* Badge — Outline style (Webflow) */}
+          <div
+            className="inline-flex items-center mb-8 px-3 py-1 text-[11px] font-semibold tracking-[0.12em] uppercase"
+            style={{
+              border: '1px solid var(--color-outline-gray)',
+              borderRadius: '4px',
+              color: 'var(--color-slate-gray)',
+              backgroundColor: 'transparent',
+            }}
+          >
             {badge}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary-navy)', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+          <h1
+            style={{
+              fontSize: 'clamp(2rem, 5vw, var(--text-heading-lg))',
+              fontWeight: '600',
+              color: 'var(--color-ink-black)',
+              lineHeight: 'var(--leading-heading-lg)',
+              letterSpacing: 'var(--tracking-heading-lg)',
+              fontFamily: 'var(--font-inter), sans-serif',
+              margin: '0 0 20px',
+            }}
+          >
             {headline}
           </h1>
-          <p className="mt-4 text-lg" style={{ color: 'var(--gray-600)', lineHeight: 1.6 }}>
+          <p
+            style={{
+              fontSize: 'var(--text-subheading)',
+              color: 'var(--color-slate-gray)',
+              lineHeight: 'var(--leading-subheading)',
+              margin: '0 0 36px',
+            }}
+          >
             {subheadline}
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Primary CTA — Webflow Blue, 4px radius */}
+            <a
               href={primaryBtnHref}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              style={{ 
-                backgroundColor: 'var(--primary-navy)', 
-                border: '2px solid var(--primary-navy)',
+              style={{
+                backgroundColor: 'var(--color-webflow-blue)',
+                color: 'var(--color-canvas-white)',
+                padding: '10px 20px',
+                borderRadius: 'var(--radius-buttons)',
+                fontSize: 'var(--text-body)',
+                fontWeight: '600',
+                textDecoration: 'none',
+                display: 'inline-block',
+                border: '1px solid var(--color-webflow-blue)',
+                transition: 'background-color 0.15s ease',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--primary-navy)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--primary-navy)';
-                e.currentTarget.style.color = '#ffffff';
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#0f5fd4'; e.currentTarget.style.borderColor = '#0f5fd4'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-webflow-blue)'; e.currentTarget.style.borderColor = 'var(--color-webflow-blue)'; }}
             >
               {primaryBtnText}
             </a>
-            <a 
+            {/* Ghost CTA — Ink Black border, 4px radius */}
+            <a
               href={secondaryBtnHref}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 hover:-translate-y-0.5"
-              style={{ 
+              style={{
                 backgroundColor: 'transparent',
-                color: 'var(--primary-navy)', 
-                border: '2px solid var(--primary-navy)',
+                color: 'var(--color-ink-black)',
+                padding: '10px 20px',
+                borderRadius: 'var(--radius-buttons)',
+                fontSize: 'var(--text-body)',
+                fontWeight: '600',
+                textDecoration: 'none',
+                display: 'inline-block',
+                border: '1px solid var(--color-ink-black)',
+                transition: 'background-color 0.15s ease, color 0.15s ease',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--primary-navy)';
-                e.currentTarget.style.color = '#ffffff';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--primary-navy)';
-              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-ink-black)'; e.currentTarget.style.color = 'var(--color-canvas-white)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--color-ink-black)'; }}
             >
               {secondaryBtnText}
             </a>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
@@ -63,21 +63,12 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
       <div className={styles.container}>
-        {/* Brand Logo */}
-        <Link href="/" className={styles.logo}>
-          <Image
-            src="/assets/logo.svg"
-            alt="Arc Digital Solutions Logo"
-            width={40}
-            height={40}
-            className="object-contain"
-            priority
-          />
-          <div className={styles.logoText}>
-            <span>Arc Digital</span>
-            <span className={styles.logoSub}>Solutions</span>
-          </div>
+        <Link href="/" className={styles.logo} aria-label="Arc Digital Solution">
+          <span className={styles.logoArc}>ARC</span>
+          <span className={styles.logoDivider} aria-hidden="true" />
+          <span className={styles.logoSub}>Digital<br />Solution</span>
         </Link>
+
 
         {/* Desktop Nav */}
         <nav className={styles.nav}>
@@ -103,24 +94,21 @@ export default function Navbar() {
           <Link href="/work" className={styles.navLink}>
             Work
           </Link>
-          <Link href="/process" className={styles.navLink}>
-            Process
-          </Link>
           <Link href="/about" className={styles.navLink}>
             About
           </Link>
           <Link href="/faq" className={styles.navLink}>
             FAQ
           </Link>
-          <Link href="/contact" className={styles.navLink}>
+          <a href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
             Contact
-          </Link>
+          </a>
         </nav>
 
         {/* CTA Start Project */}
-        <Link href="/contact" className={styles.ctaBtn}>
+        <a href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" target="_blank" rel="noopener noreferrer" className={styles.ctaBtn}>
           Start Project
-        </Link>
+        </a>
 
         {/* Mobile Toggle Hamburger */}
         <button
@@ -162,22 +150,19 @@ export default function Navbar() {
         <Link href="/work" className={styles.mobileNavLink}>
           Work
         </Link>
-        <Link href="/process" className={styles.mobileNavLink}>
-          Process
-        </Link>
         <Link href="/about" className={styles.mobileNavLink}>
           About
         </Link>
         <Link href="/faq" className={styles.mobileNavLink}>
           FAQ
         </Link>
-        <Link href="/contact" className={styles.mobileNavLink}>
+        <a href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" target="_blank" rel="noopener noreferrer" className={styles.mobileNavLink}>
           Contact
-        </Link>
+        </a>
 
-        <Link href="/contact" className={styles.mobileCta}>
+        <a href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" target="_blank" rel="noopener noreferrer" className={styles.mobileCta}>
           Start Project
-        </Link>
+        </a>
       </div>
     </header>
   );

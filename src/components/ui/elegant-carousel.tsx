@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import "./elegant-carousel.css";
 
 interface SlideData {
@@ -50,7 +51,6 @@ const slides: SlideData[] = [
 export default function ElegantCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -64,7 +64,6 @@ export default function ElegantCarousel() {
   const goToSlide = useCallback(
     (index: number, dir?: "next" | "prev") => {
       if (isTransitioning || index === currentIndex) return;
-      setDirection(dir || (index > currentIndex ? "next" : "prev"));
       setIsTransitioning(true);
       setProgress(0);
 
@@ -255,10 +254,12 @@ export default function ElegantCarousel() {
             <div
               className={`carousel-image-frame ${isTransitioning ? "transitioning" : "visible"}`}
             >
-              <img
+              <Image
                 src={currentSlide.imageUrl}
                 alt={currentSlide.title}
+                fill
                 className="carousel-image"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div
                 className="carousel-image-overlay"

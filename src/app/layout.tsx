@@ -1,26 +1,29 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["700", "800"],
+  style: ["normal"],
 });
+
 
 export const metadata: Metadata = {
-  title: "Arc Digital Solutions | Premium Web Design & SEO Services",
+  title: "Arc Digital Solution | Premium Web Design & SEO Services",
   description:
-    "Arc Digital Solutions builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
-  metadataBase: new URL("https://arcdigitalsolutions.com"),
+    "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+  metadataBase: new URL("https://arcdigitalsolution.in"),
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -29,19 +32,19 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Arc Digital Solutions | Premium Web Design & SEO Services",
+    title: "Arc Digital Solution | Premium Web Design & SEO Services",
     description:
-      "Arc Digital Solutions builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
-    url: "https://arcdigitalsolutions.com",
-    siteName: "Arc Digital Solutions",
+      "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+    url: "https://arcdigitalsolution.in",
+    siteName: "Arc Digital Solution",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arc Digital Solutions | Premium Web Design & SEO Services",
+    title: "Arc Digital Solution | Premium Web Design & SEO Services",
     description:
-      "Arc Digital Solutions builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+      "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
   },
 };
 
@@ -53,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${plusJakartaSans.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${barlowCondensed.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
         {/* Padding-top to avoid content getting hidden under sticky Navbar */}

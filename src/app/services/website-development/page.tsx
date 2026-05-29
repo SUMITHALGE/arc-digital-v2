@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import styles from "../services.module.css";
 
 export const metadata: Metadata = {
-  title: "Website Development Services | Arc Digital Solutions",
+  title: "Website Development Services | Arc Digital Solution",
   description:
     "We design and build fast, secure, and SEO-first custom websites using Next.js, React, and Tailwind CSS. Elevate your brand presence online.",
 };
@@ -41,9 +41,9 @@ export default function WebsiteDevelopmentPage() {
     "provider": {
       "@type": "Organization",
       "name": "Arc Digital Solutions",
-      "url": "https://arcdigitalsolutions.com"
+      "url": "https://arcdigitalsolutions.in"
     },
-    "description": "Custom Next.js & React website development with SEO optimizations, high page speed, and responsive styles."
+    "description": "Custom Next.js & React website development with SEO optimizations, high page speed, and responsive styles.",
   };
 
   return (
@@ -91,12 +91,20 @@ export default function WebsiteDevelopmentPage() {
                   Dynamic SEO Headers Configured
                 </li>
               </ul>
-              <Link
-                href="/contact"
-                className="mt-8 block text-center bg-primary-navy hover:bg-accent-blue text-white font-bold py-3.5 px-6 rounded-full transition-colors"
+              <a
+                href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Website%20Development"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block text-center text-white font-semibold py-3 px-6 transition-colors text-sm"
+                style={{
+                  backgroundColor: 'var(--color-webflow-blue)',
+                  borderRadius: 'var(--radius-buttons)',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0f5fd4')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-webflow-blue)')}
               >
                 Inquire About Website Dev
-              </Link>
+              </a>
             </div>
           </div>
 
