@@ -26,22 +26,10 @@ const values = [
 
 const team = [
   {
-    name: "Sarah Jenkins",
-    role: "Founder & Creative Director",
-    image: "/assets/member1.png",
-    bio: "Spearheaded creative strategy and premium UI design across 40+ brand launches, accelerating client user engagement metrics by 60% on average. Directed award-winning global design projects using user-centric aesthetic methodologies.",
-  },
-  {
     name: "Sumit Halge",
-    role: "Lead Systems Architect & Co-Founder",
-    image: "/assets/member2.png",
-    bio: "Architected and deployed enterprise microservices using Java (Spring Boot) and React.js on AWS, improving system throughput by 45%. Spearheaded event-driven containerization via Kafka and Docker, reducing deployment latency by 35% while ensuring OWASP security-first alignment across all APIs.",
-  },
-  {
-    name: "Emily Rose",
-    role: "SEO Director & Partner",
-    image: "/assets/member3.png",
-    bio: "Optimized search architectures to multiply organic traffic by 120% for scale-up clients. Orchestrated comprehensive programmatic SEO systems and technical schema architectures, saving marketing teams 15+ hours weekly.",
+    role: "Founder & Software Engineer",
+    image: "/testimonials/sumit.png",
+    bio: "Established a technology-driven digital solutions company focused on web development, software engineering, and cloud technologies. Leading business strategy, client engagement, and product delivery while building innovative solutions that help organizations accelerate their digital growth.",
   },
 ];
 
@@ -87,7 +75,7 @@ export default function AboutPage() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover"
+                      style={{ objectFit: "cover", objectPosition: "center 20%" }}
                       sizes="80px"
                     />
                   </div>

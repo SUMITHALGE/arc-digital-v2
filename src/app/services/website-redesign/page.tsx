@@ -95,13 +95,7 @@ export default function WebsiteRedesignPage() {
                 href="https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Website%20Redesign"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 block text-center text-white font-semibold py-3 px-6 transition-colors text-sm"
-                style={{
-                  backgroundColor: 'var(--color-webflow-blue)',
-                  borderRadius: 'var(--radius-buttons)',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0f5fd4')}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-webflow-blue)')}
+                className={styles.serviceCta}
               >
                 Inquire About Website Redesign
               </a>

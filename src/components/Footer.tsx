@@ -192,7 +192,7 @@ export default function Footer() {
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-blue)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gray-500)")}
                 >
-                  hello@arcdigitalsolutions.in
+                  contactarcdigitalsolution@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -340,7 +340,7 @@ export default function Footer() {
             <span className="font-semibold" style={{ color: 'var(--color-ink-black)' }}>
               Arc Digital Solution
             </span>
-            . All rights reserved. Built with Next.js & ❤️ in India.
+            . All rights reserved. Made with ❤️ in India.
           </p>
           <div className="flex items-center gap-5">
             {legal.map((item) => (

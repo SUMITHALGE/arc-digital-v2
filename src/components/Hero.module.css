@@ -1,7 +1,7 @@
 /* ===== Hero Section Layout ===== */
 .hero {
   padding: 60px 0 100px;
-  background-color: var(--gray-50);
+  background-color: var(--color-cream);
   position: relative;
   overflow: hidden;
 }
@@ -31,8 +31,8 @@
 }
 
 .badge {
-  background-color: rgba(47, 101, 246, 0.08);
-  border: 1px solid rgba(47, 101, 246, 0.15);
+  background-color: rgba(0, 112, 74, 0.08);
+  border: 1px solid rgba(0, 112, 74, 0.18);
   color: var(--accent-blue);
   padding: 8px 16px;
   border-radius: 9999px;
@@ -249,7 +249,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--color-canvas-white);
   border: 5px solid var(--accent-blue);
   display: flex;
   align-items: center;
@@ -276,7 +276,7 @@
   width: 45%;
   height: 45%;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--color-canvas-white);
 }
 
 /* ===== Float Animation ===== */

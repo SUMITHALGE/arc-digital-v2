@@ -11,7 +11,7 @@
   z-index: 50;
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(240, 232, 220, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-outline-gray);
@@ -160,9 +160,7 @@
   transition: background-color 0.15s ease;
 }
 
-:root {
-  --hover-bg-color: #e2eafc;
-}
+
 
 .dropdownItem:hover {
   background-color: var(--hover-bg-color);
@@ -202,7 +200,7 @@
 }
 
 .ctaBtn:hover {
-  background-color: #0f5fd4;
+  background-color: #005a3a;
   box-shadow: var(--shadow-lg);
 }
 
@@ -323,7 +321,7 @@
 }
 
 .mobileCta:hover {
-  background-color: #0f5fd4;
+  background-color: #005a3a;
 }
 
 @media (max-width: 767px) {

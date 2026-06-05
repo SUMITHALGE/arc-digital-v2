@@ -5,37 +5,51 @@
    ═══════════════════════════════════════════════════ */
 
 :root {
-  /* ── Colors ────────────────────────────── */
-  --color-canvas-white:    #ffffff;
-  --color-ink-black:       #080808;
-  --color-slate-gray:      #5a5a5a;
-  --color-whisper-gray:    #f0f0f0;
-  --color-outline-gray:    #d8d8d8;
-  --color-webflow-blue:    #146ef5;
-  --color-sky-blue:        #6ca7ff;
-  --color-emerald-green:   #60ed76;
-  --color-amber-glow:      #ffa666;
-  --gradient-deep-blue:    radial-gradient(circle farthest-side at 0% 0%, rgb(202, 177, 255) 5%, rgb(20, 110, 245) 10%, rgb(8, 8, 8) 20%);
+  /* ── Starbucks Premium Palette ──────────────────── */
+  --color-canvas-white:    #FBF7F2;          /* card surface — soft warm white */
+  --color-ink-black:       #1E3932;          /* deep forest green (dark text) */
+  --color-slate-gray:      #5C4033;          /* warm brown-gray for body text */
+  --color-whisper-gray:    #E8DDD0;          /* deeper parchment for alt sections */
+  --color-outline-gray:    #D4C9BA;          /* warm tan borders */
 
-  /* Legacy aliases — keeps existing components working during migration */
+  /* ── Brand Colors ───────────────────────────────── */
+  --color-starbucks-green:  #00704A;         /* Starbucks signature green */
+  --color-forest-dark:      #1E3932;         /* deep forest (headline dark) */
+  --color-gold:             #CBA258;         /* warm gold accent */
+  --color-gold-light:       #E8D5A3;         /* light gold tint */
+  --color-cream:            #F0E8DC;         /* main page background — rich warm parchment */
+  --color-espresso:         #3D2B1F;         /* deep espresso brown */
+
+  /* ── Gradients ──────────────────────────────────── */
+  --gradient-deep-blue:    radial-gradient(circle farthest-side at 0% 0%, #CBA258 5%, #00704A 20%, #1E3932 50%);
+
+  /* Legacy aliases — keeps existing components working */
   --background:           var(--color-canvas-white);
   --foreground:           var(--color-ink-black);
-  --primary-navy:         var(--color-ink-black);
-  --primary-navy-hover:   #1a1a1a;
-  --accent-blue:          var(--color-webflow-blue);
-  --accent-cyan:          var(--color-sky-blue);
-  --accent-yellow:        var(--color-amber-glow);
-  --accent-pink:          #e45373;
+  --primary-navy:         var(--color-forest-dark);
+  --primary-navy-hover:   #2a4f44;
+  --accent-blue:          var(--color-starbucks-green);
+  --accent-cyan:          var(--color-gold);
+  --accent-yellow:        var(--color-gold);
+  --accent-pink:          var(--color-gold);
   --gray-50:              var(--color-whisper-gray);
-  --gray-100:             #e8e8e8;
+  --gray-100:             #E5DED5;
   --gray-200:             var(--color-outline-gray);
-  --gray-300:             #c4c4c4;
-  --gray-400:             #9a9a9a;
+  --gray-300:             #C4B89F;
+  --gray-400:             #A0907A;
   --gray-500:             var(--color-slate-gray);
-  --gray-600:             #4a4a4a;
-  --gray-700:             #333333;
-  --gray-800:             #222222;
-  --gray-900:             #111111;
+  --gray-600:             #5C4033;
+  --gray-700:             #3D2B1F;
+  --gray-800:             #2A1F16;
+  --gray-900:             #1A130E;
+
+  /* ── Webflow alias (used by Navbar, buttons) ─────── */
+  --color-webflow-blue:   var(--color-starbucks-green);
+  --color-sky-blue:       var(--color-gold);
+  --color-emerald-green:  #00A862;
+  --color-amber-glow:     var(--color-gold);
+  --hover-bg-color:       #D4EDE4;           /* light green tint for dropdown hover */
+
 
   /* ── Typography Scale ──────────────────── */
   --text-caption:         10px;
@@ -111,12 +125,12 @@
 @theme inline {
   --color-background:          var(--color-canvas-white);
   --color-foreground:          var(--color-ink-black);
-  --color-primary-navy:        var(--color-ink-black);
-  --color-primary-navy-hover:  #1a1a1a;
-  --color-accent-blue:         var(--color-webflow-blue);
-  --color-accent-cyan:         var(--color-sky-blue);
-  --color-accent-yellow:       var(--color-amber-glow);
-  --color-accent-pink:         #e45373;
+  --color-primary-navy:        var(--color-forest-dark);
+  --color-primary-navy-hover:  #2a4f44;
+  --color-accent-blue:         var(--color-starbucks-green);
+  --color-accent-cyan:         var(--color-gold);
+  --color-accent-yellow:       var(--color-gold);
+  --color-accent-pink:         var(--color-gold);
 
   --font-sans:    var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -128,8 +142,8 @@ html {
 }
 
 body {
-  background-color: var(--color-canvas-white);
-  color: var(--color-ink-black);
+  background-color: var(--color-cream); /* #F0E8DC — rich warm parchment */
+  color: var(--color-forest-dark);
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: var(--text-body);
   line-height: var(--leading-body);
@@ -141,7 +155,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-weight: 600;
-  color: var(--color-ink-black);
+  color: var(--color-forest-dark);
   letter-spacing: var(--tracking-heading-lg);
   line-height: var(--leading-heading);
 }
@@ -151,8 +165,8 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--color-webflow-blue);
-  color: var(--color-canvas-white);
+  background-color: var(--color-starbucks-green);
+  color: #ffffff;
   padding: 10px 16px;
   border-radius: var(--radius-buttons);
   font-size: var(--text-body);
@@ -164,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #0f5fd4;
+  background-color: #005a3a;
   box-shadow: var(--shadow-lg);
 }
 
@@ -187,4 +201,90 @@ h1, h2, h3, h4, h5, h6 {
 .btn-ghost:hover {
   background-color: var(--color-ink-black);
   color: var(--color-canvas-white);
+}
+
+/* ── Arc Hero Animations (moved from inline style tag) ──── */
+@keyframes arc-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 50%);
+  }
+}
+
+@keyframes arc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arc-fade-in-up {
+  animation-name: arc-fade-in-up;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+}
+
+.arc-fade-in {
+  animation-name: arc-fade-in;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+}
+
+/* ── Reduced Motion Accessibility ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .arc-fade-in-up,
+  .arc-fade-in {
+    animation: none;
+    opacity: 1;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Mobile-first Performance Utilities ─────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Smooth momentum scroll on iOS */
+main {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 767px) {
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Increase font readability on small screens */
+  body {
+    font-size: 15px;
+  }
 }

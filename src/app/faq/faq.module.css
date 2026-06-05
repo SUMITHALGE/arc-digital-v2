@@ -51,15 +51,15 @@
 }
 
 .faqItem {
-  background-color: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background-color: var(--color-canvas-white);
+  border: 1px solid var(--color-outline-gray);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .faqItemOpen {
-  border-color: rgba(47, 101, 246, 0.3);
+  border-color: rgba(0, 112, 74, 0.35);
   box-shadow: 0 10px 20px rgba(13, 30, 54, 0.03);
 }
 

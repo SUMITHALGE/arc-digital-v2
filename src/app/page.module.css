@@ -234,9 +234,9 @@
   background-position: 100% 50%;
   transform: translateY(-4px) scale(1.008);
   box-shadow:
-    0 0 0 1px rgba(99, 120, 246, 0.4),
-    0 20px 60px rgba(47, 101, 246, 0.35),
-    0 40px 80px rgba(13, 30, 54, 0.2);
+    0 0 0 1px rgba(0, 168, 98, 0.4),
+    0 20px 60px rgba(0, 112, 74, 0.35),
+    0 40px 80px rgba(30, 57, 50, 0.2);
 }
 
 .ctaBox:hover::before {
@@ -300,9 +300,9 @@
 }
 
 .ctaBtn:hover {
-  background-color: #f0f4ff;
+  background-color: #EDE8E1;
   box-shadow:
-    0 0 0 3px rgba(255, 255, 255, 0.3),
+    0 0 0 3px rgba(249, 245, 240, 0.4),
     0 8px 24px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px) scale(1.04);
 }

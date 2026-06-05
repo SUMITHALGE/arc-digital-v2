@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -9,6 +9,7 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
+  preload: true,
 });
 
 const barlowCondensed = Barlow_Condensed({
@@ -16,8 +17,16 @@ const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["700", "800"],
   style: ["normal"],
+  display: "swap",
+  preload: false, // only used in logo, not critical
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#F0E8DC",
+};
 
 export const metadata: Metadata = {
   title: "Arc Digital Solution | Premium Web Design & SEO Services",
@@ -55,12 +64,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to image CDNs for faster resource loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body
         className={`${inter.variable} ${barlowCondensed.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
         {/* Padding-top to avoid content getting hidden under sticky Navbar */}
-        <main className="flex-grow pt-[80px]">
+        <main className="flex-grow pt-[64px]">
           {children}
         </main>
         <Footer />
