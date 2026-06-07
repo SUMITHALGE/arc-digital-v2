@@ -17,20 +17,28 @@ import styles from "./page.module.css";
 
 const faqData = [
   {
-    question: "Why should we use a Next.js framework for our digital agency website?",
-    answer: "Next.js provides Server-Side Rendering (SSR) and Static Site Generation (SSG) out of the box. This translates to incredibly fast page loads, optimal Google Search indexes, better performance, and seamless client-side user experience using React.",
+    question: "What web development services does ARC Digital Solutions offer in Mumbai and Pune?",
+    answer: "ARC Digital Solutions offers custom website development, React.js development, Next.js development, Spring Boot backend development, SEO services, digital marketing, website redesign, e-commerce development, UI/UX design, landing page design, and website maintenance — serving businesses across Mumbai, Pune, Navi Mumbai, and Thane.",
   },
   {
-    question: "Do you integrate SEO schemas automatically?",
-    answer: "Yes, every website we build features custom JSON-LD schemas (Organization, Services, FAQPage, etc.) using industry-standard schema-dts and dynamic Metadata API structures to maximize search appearance visibility.",
+    question: "How much does website development cost in Mumbai?",
+    answer: "Website development in Mumbai starts from ₹15,000 for basic business websites. Custom React.js or Spring Boot applications start from ₹40,000. ARC Digital Solutions provides free, no-obligation project quotes based on your specific requirements.",
   },
   {
-    question: "What is the typical timeframe for a full project delivery?",
-    answer: "A standard landing page or portfolio launch takes between 3 to 5 weeks from discovery to wireframes and development. More complex Next.js SaaS applications take 6 to 10 weeks.",
+    question: "Does ARC Digital Solutions provide SEO services in Pune?",
+    answer: "Yes. ARC Digital Solutions is an SEO company serving Pune and Mumbai. We provide technical SEO, local SEO, Google Business Profile optimization, content strategy, and link building — helping Pune businesses rank higher on Google and generate more qualified leads.",
   },
   {
-    question: "How do you optimize page speed and Core Web Vitals?",
-    answer: "We focus on clean Next.js architecture: image optimization (`next/image`), font self-hosting, lightweight styling modules, minimizing third-party script blockages, and utilizing content delivery network (CDN) distributions.",
+    question: "What is the typical timeframe for website development at ARC Digital?",
+    answer: "A standard business website takes 2–4 weeks. Custom React.js or Spring Boot web applications take 4–12 weeks depending on complexity. We provide a detailed project timeline and milestone schedule before starting any project.",
+  },
+  {
+    question: "Who is the founder of ARC Digital Solutions?",
+    answer: "ARC Digital Solutions was founded by Sumit Halge, a software engineer and web development entrepreneur based in Mumbai and Pune, Maharashtra. Sumit leads business strategy, client engagement, and technical delivery — specializing in React.js, Spring Boot, and digital marketing.",
+  },
+  {
+    question: "Does ARC Digital Solutions build Spring Boot applications in Pune?",
+    answer: "Yes. ARC Digital Solutions is one of the few web development companies in Pune with dedicated Spring Boot expertise. We build REST APIs, microservices, and full-stack React + Spring Boot applications for Pune startups, IT companies, and enterprises in Hinjewadi, Baner, and across Pune.",
   },
 ];
 
@@ -41,27 +49,51 @@ export default function Home() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  // Structured Organization Schema for SEO
+  // Organization Schema — homepage-specific (global schema is in layout.tsx)
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Arc Digital Solution",
-    "url": "https://arcdigitalsolution.in",
-    "logo": "https://arcdigitalsolution.in/assets/logo.png",
-    "description": "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+    "@id": "https://www.arcdigitalsolution.in/#organization",
+    "name": "ARC Digital Solutions",
+    "alternateName": "Arc Digital Solution",
+    "url": "https://www.arcdigitalsolution.in",
+    "logo": "https://www.arcdigitalsolution.in/favicon.svg",
+    "description": "ARC Digital Solutions is a web development and digital marketing company in Mumbai and Pune. We build custom websites, React.js apps, Spring Boot APIs, and deliver SEO services that drive real business growth.",
+    "founder": { "@type": "Person", "name": "Sumit Halge" },
+    "areaServed": ["Mumbai", "Pune", "Navi Mumbai", "Thane", "Maharashtra", "India"],
     "sameAs": [
       "https://twitter.com/arcdigital",
-      "https://instagram.com/arcdigital",
-      "https://linkedin.com/company/arcdigital"
+      "https://www.instagram.com/arcdigitalsolution",
+      "https://www.linkedin.com/company/arcdigitalsolution",
+      "https://www.facebook.com/arcdigitalsolution"
     ]
+  };
+
+  // FAQPage Schema for homepage FAQs — enables Google rich snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
   };
 
   return (
     <>
-      {/* Inject Organization Schema */}
+      {/* Organization Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      {/* FAQPage Schema — enables Google rich snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero Section */}

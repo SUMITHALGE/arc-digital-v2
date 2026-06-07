@@ -18,7 +18,7 @@ const barlowCondensed = Barlow_Condensed({
   weight: ["700", "800"],
   style: ["normal"],
   display: "swap",
-  preload: false, // only used in logo, not critical
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -29,32 +29,272 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Arc Digital Solution | Premium Web Design & SEO Services",
+  title: {
+    default: "ARC Digital Solutions | Web Development Company Mumbai & Pune",
+    template: "%s | ARC Digital Solutions",
+  },
   description:
-    "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
-  metadataBase: new URL("https://arcdigitalsolution.in"),
+    "ARC Digital Solutions — Top web development company in Mumbai & Pune. Custom websites, React.js, Spring Boot, SEO services & digital marketing. 100+ projects delivered. Free consultation.",
+  metadataBase: new URL("https://www.arcdigitalsolution.in"),
+  keywords: [
+    "web development company mumbai",
+    "web development company pune",
+    "website development company mumbai",
+    "website development company pune",
+    "react development mumbai",
+    "spring boot development pune",
+    "seo company mumbai",
+    "seo company pune",
+    "digital marketing agency mumbai",
+    "digital marketing agency pune",
+    "website redesign mumbai",
+    "website redesign pune",
+    "ARC Digital Solutions",
+    "Sumit Halge",
+  ],
+  authors: [
+    {
+      name: "Sumit Halge",
+      url: "https://www.arcdigitalsolution.in/about",
+    },
+  ],
+  creator: "Sumit Halge",
+  publisher: "ARC Digital Solutions",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
+    shortcut: "/favicon.ico",
   },
   alternates: {
     canonical: "/",
+    languages: {
+      "en-IN": "/",
+    },
   },
   openGraph: {
-    title: "Arc Digital Solution | Premium Web Design & SEO Services",
+    title: "ARC Digital Solutions | Web Development Company Mumbai & Pune",
     description:
-      "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
-    url: "https://arcdigitalsolution.in",
-    siteName: "Arc Digital Solution",
-    locale: "en_US",
+      "Expert web development company in Mumbai & Pune. React.js, Spring Boot, custom websites, SEO & digital marketing. Serving 100+ businesses across Maharashtra. Free consultation.",
+    url: "https://www.arcdigitalsolution.in",
+    siteName: "ARC Digital Solutions",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/assets/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ARC Digital Solutions — Web Development Company in Mumbai & Pune",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arc Digital Solution | Premium Web Design & SEO Services",
+    title: "ARC Digital Solutions | Web Development Company Mumbai & Pune",
     description:
-      "Arc Digital Solution builds fast, premium, and SEO-first websites designed to drive traffic, convert leads, and generate real business growth.",
+      "Custom websites, React.js apps, Spring Boot APIs & SEO services in Mumbai & Pune. Free consultation available.",
+    images: ["/assets/og-image.jpg"],
+    creator: "@arcdigital",
   },
+  verification: {
+    google: "fZzXxlgFrhUQ8xpsxCu21B_KFrMlxtv-7Btr_F8JyoA",
+  },
+};
+
+// ─── Comprehensive Schema Graph (renders on EVERY page) ──────────────────────
+const siteSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.arcdigitalsolution.in/#business",
+      name: "ARC Digital Solutions",
+      alternateName: "Arc Digital Solution",
+      url: "https://www.arcdigitalsolution.in",
+      logo: {
+        "@type": "ImageObject",
+        "@id": "https://www.arcdigitalsolution.in/#logo",
+        url: "https://www.arcdigitalsolution.in/favicon.svg",
+        contentUrl: "https://www.arcdigitalsolution.in/favicon.svg",
+        width: 512,
+        height: 512,
+        caption: "ARC Digital Solutions",
+      },
+      image: "https://www.arcdigitalsolution.in/assets/og-image.jpg",
+      description:
+        "ARC Digital Solutions is a web development and digital marketing company in Mumbai and Pune, founded by Sumit Halge. We specialize in React.js, Spring Boot, custom website development, SEO services, website redesign, and e-commerce development. Serving startups and SMEs across Maharashtra.",
+      founder: {
+        "@type": "Person",
+        "@id": "https://www.arcdigitalsolution.in/about#sumit-halge",
+        name: "Sumit Halge",
+        jobTitle: "Founder & Software Engineer",
+        url: "https://www.arcdigitalsolution.in/about",
+        image: "https://www.arcdigitalsolution.in/testimonials/sumit.png",
+        sameAs: [
+          "https://www.linkedin.com/in/sumithalge/",
+          "https://github.com/sumithalge",
+        ],
+        knowsAbout: [
+          "React.js",
+          "Spring Boot",
+          "Next.js",
+          "SEO",
+          "Digital Marketing",
+          "Web Development",
+          "Java",
+          "JavaScript",
+          "TypeScript",
+        ],
+      },
+      address: [
+        {
+          "@type": "PostalAddress",
+          addressLocality: "Mumbai",
+          addressRegion: "Maharashtra",
+          addressCountry: "IN",
+        },
+        {
+          "@type": "PostalAddress",
+          addressLocality: "Pune",
+          addressRegion: "Maharashtra",
+          addressCountry: "IN",
+        },
+      ],
+      telephone: "+91-7719902074",
+      email: "hello@arcdigitalsolution.in",
+      priceRange: "₹₹",
+      currenciesAccepted: "INR",
+      paymentAccepted: "Cash, UPI, Credit Card, Bank Transfer",
+      areaServed: [
+        { "@type": "City", name: "Mumbai", sameAs: "https://www.wikidata.org/wiki/Q1156" },
+        { "@type": "City", name: "Pune", sameAs: "https://www.wikidata.org/wiki/Q1538" },
+        { "@type": "City", name: "Navi Mumbai" },
+        { "@type": "City", name: "Thane" },
+        { "@type": "City", name: "Pimpri-Chinchwad" },
+        { "@type": "State", name: "Maharashtra" },
+        { "@type": "Country", name: "India" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Web Development & Digital Marketing Services — Mumbai & Pune",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Web Development",
+              description: "Custom website development in Mumbai and Pune using React.js and Next.js",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "React.js Development",
+              description: "Expert React.js web application development for Mumbai and Pune businesses",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Spring Boot Development",
+              description: "Spring Boot REST API and microservices development in Mumbai and Pune",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "SEO Services",
+              description: "Search engine optimization for businesses in Mumbai and Pune",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Digital Marketing",
+              description: "Digital marketing agency services in Mumbai and Pune",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Website Redesign",
+              description: "Professional website redesign services in Mumbai and Pune",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "E-Commerce Development",
+              description: "Custom e-commerce website development in India",
+              areaServed: ["Mumbai", "Pune", "India"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "UI/UX Design",
+              description: "Premium UI/UX design services in Mumbai and Pune",
+              areaServed: ["Mumbai", "Pune"],
+            },
+          },
+        ],
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "19:00",
+      },
+      sameAs: [
+        "https://www.facebook.com/arcdigitalsolution",
+        "https://www.instagram.com/arcdigitalsolution",
+        "https://twitter.com/arcdigital",
+        "https://www.linkedin.com/company/arcdigitalsolution",
+        "https://clutch.co/profile/arc-digital-solutions",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.arcdigitalsolution.in/#website",
+      url: "https://www.arcdigitalsolution.in",
+      name: "ARC Digital Solutions",
+      description: "Web Development Company in Mumbai & Pune — React, Spring Boot, SEO",
+      publisher: { "@id": "https://www.arcdigitalsolution.in/#business" },
+      inLanguage: "en-IN",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://www.arcdigitalsolution.in/?s={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -63,11 +303,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
-        {/* Preconnect to image CDNs for faster resource loading */}
+        {/* Performance: Preconnect to critical origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+        {/* Global LocalBusiness + WebSite Schema — injected on EVERY page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
+        />
       </head>
       <body
         className={`${inter.variable} ${barlowCondensed.variable} antialiased min-h-screen flex flex-col`}

@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
-Sitemap: https://arcdigitalsolutions.in/sitemap.xml
+
+# Block non-essential paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /thank-you
+
+# Block AI scrapers that don't respect robots.txt isn't needed but added for clarity
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap location — IMPORTANT: submit this URL to Google Search Console
+Sitemap: https://www.arcdigitalsolution.in/sitemap.xml
