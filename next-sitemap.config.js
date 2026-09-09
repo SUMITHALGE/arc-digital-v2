@@ -9,7 +9,7 @@ module.exports = {
   exclude: ["/api/*", "/thank-you", "/_next/*"],
   additionalPaths: async (config) => {
     return [
-      // Priority location pages
+      // Priority location pages — Mumbai & Pune
       await config.transform(config, "/web-development-company-mumbai"),
       await config.transform(config, "/web-development-company-pune"),
       await config.transform(config, "/website-redesign-mumbai"),
@@ -22,6 +22,14 @@ module.exports = {
       await config.transform(config, "/spring-boot-development-pune"),
       await config.transform(config, "/digital-marketing-agency-mumbai"),
       await config.transform(config, "/digital-marketing-agency-pune"),
+      // App development pages
+      await config.transform(config, "/app-development-company-pune"),
+      await config.transform(config, "/app-development-company-mumbai"),
+      await config.transform(config, "/app-development-company-chhatrapati-sambhajinagar"),
+      // Chhatrapati Sambhajinagar pages
+      await config.transform(config, "/web-development-company-chhatrapati-sambhajinagar"),
+      await config.transform(config, "/seo-company-chhatrapati-sambhajinagar"),
+      await config.transform(config, "/digital-marketing-agency-chhatrapati-sambhajinagar"),
     ];
   },
   transform: async (config, path) => {
@@ -31,10 +39,16 @@ module.exports = {
       "/services",
       "/web-development-company-mumbai",
       "/web-development-company-pune",
+      "/web-development-company-chhatrapati-sambhajinagar",
+      "/app-development-company-mumbai",
+      "/app-development-company-pune",
+      "/app-development-company-chhatrapati-sambhajinagar",
       "/seo-company-mumbai",
       "/seo-company-pune",
+      "/seo-company-chhatrapati-sambhajinagar",
       "/digital-marketing-agency-mumbai",
       "/digital-marketing-agency-pune",
+      "/digital-marketing-agency-chhatrapati-sambhajinagar",
     ];
     const servicePriority = [
       "/services/website-development",
