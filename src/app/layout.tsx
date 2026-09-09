@@ -311,6 +311,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="fZzXxlgFrhUQ8xpsxCu21B_KFrMlxtv-7Btr_F8JyoA" />
+
         {/* Global LocalBusiness + WebSite Schema — injected on EVERY page */}
         <script
           type="application/ld+json"
