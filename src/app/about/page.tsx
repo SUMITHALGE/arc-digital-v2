@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 import styles from "./about.module.css";
 
@@ -99,7 +100,7 @@ export default function AboutPage() {
       <div className={styles.container}>
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-gray-500 mb-8 mt-4">
-          <a href="/" className="hover:underline">Home</a>
+          <Link href="/" className="hover:underline">Home</Link>
           <span>/</span>
           <span className="font-medium text-primary-navy">About Us</span>
         </nav>
