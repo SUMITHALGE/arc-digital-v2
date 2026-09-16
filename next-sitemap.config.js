@@ -30,6 +30,13 @@ module.exports = {
       await config.transform(config, "/web-development-company-chhatrapati-sambhajinagar"),
       await config.transform(config, "/seo-company-chhatrapati-sambhajinagar"),
       await config.transform(config, "/digital-marketing-agency-chhatrapati-sambhajinagar"),
+      // Blog articles — high-intent SEO content
+      await config.transform(config, "/blog"),
+      await config.transform(config, "/blog/website-development-cost-mumbai"),
+      await config.transform(config, "/blog/why-pune-website-not-ranking-google"),
+      await config.transform(config, "/blog/best-seo-company-mumbai-how-to-choose"),
+      await config.transform(config, "/blog/react-vs-wordpress-mumbai-business"),
+      await config.transform(config, "/blog/website-redesign-checklist-pune-businesses"),
     ];
   },
   transform: async (config, path) => {

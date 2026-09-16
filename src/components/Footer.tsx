@@ -18,6 +18,7 @@ const services = [
 const company = [
   { label: "About Us", href: "/about" },
   { label: "Our Work", href: "/work" },
+  { label: "Blog & Insights", href: "/blog" },
   { label: "FAQs", href: "/faq" },
   { label: "Contact", href: "https://wa.me/917719902074?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project%20with%20Arc%20Digital%20Solutions" },
 ];
@@ -118,7 +119,7 @@ export default function Footer() {
 
       {/* ── Main footer body ── */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-14">
 
           {/* ── Brand column ── */}
           <div className="flex flex-col gap-6">
@@ -321,6 +322,55 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* ── Location Links column ── */}
+          <div>
+            <h3
+              className="text-xs font-extrabold uppercase tracking-widest mb-6"
+              style={{ color: "var(--gray-400)" }}
+            >
+              Locations
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {[
+                { label: "Web Dev Mumbai", href: "/web-development-company-mumbai" },
+                { label: "Web Dev Pune", href: "/web-development-company-pune" },
+                { label: "SEO Mumbai", href: "/seo-company-mumbai" },
+                { label: "SEO Pune", href: "/seo-company-pune" },
+                { label: "Digital Marketing Mumbai", href: "/digital-marketing-agency-mumbai" },
+                { label: "Digital Marketing Pune", href: "/digital-marketing-agency-pune" },
+                { label: "App Dev Mumbai", href: "/app-development-company-mumbai" },
+                { label: "App Dev Pune", href: "/app-development-company-pune" },
+                { label: "Website Redesign Mumbai", href: "/website-redesign-mumbai" },
+                { label: "Website Redesign Pune", href: "/website-redesign-pune" },
+                { label: "React Dev Mumbai", href: "/react-development-mumbai" },
+                { label: "React Dev Pune", href: "/react-development-pune" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm flex items-center gap-2 transition-all duration-200"
+                    style={{ color: "var(--gray-600)" }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.color = "var(--accent-blue)";
+                      el.style.paddingLeft = "4px";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.color = "var(--gray-600)";
+                      el.style.paddingLeft = "0";
+                    }}
+                  >
+                    <span
+                      className="w-1 h-1 rounded-full shrink-0"
+                      style={{ background: "var(--accent-blue)" }}
+                    />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
         </div>
 

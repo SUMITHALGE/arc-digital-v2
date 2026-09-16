@@ -3,6 +3,7 @@ import { Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -273,6 +274,13 @@ const siteSchemaGraph = {
           },
         ],
       },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "18",
+        bestRating: "5",
+        worstRating: "1",
+      },
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -285,6 +293,7 @@ const siteSchemaGraph = {
         "https://twitter.com/arcdigital",
         "https://www.linkedin.com/company/arcdigitalsolution",
         "https://clutch.co/profile/arc-digital-solutions",
+        "https://share.google/fFpALBVM1pFuvoPYl",
       ],
     },
     {
@@ -338,6 +347,7 @@ export default function RootLayout({
         <main className="flex-grow pt-[64px]">
           {children}
         </main>
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>

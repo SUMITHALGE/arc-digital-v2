@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ui/services";
 import ElegantCarousel from "@/components/ui/elegant-carousel";
 import TestimonialSlider from "@/components/ui/testimonial-slider";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 
@@ -99,10 +100,53 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+      {/* ── Trust / Stats Bar ── */}
+      <section
+        style={{
+          background: "var(--color-forest-dark)",
+          padding: "32px 24px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+            gap: "24px",
+            alignItems: "center",
+          }}
+        >
+          {[
+            { value: "20+", label: "Projects Delivered" },
+            { value: "4.9★", label: "Client Rating" },
+            { value: "Mumbai & Pune", label: "Primary Markets" },
+            { value: "React + Spring Boot", label: "Core Stack" },
+            { value: "Free", label: "Initial Consultation" },
+          ].map((stat) => (
+            <div key={stat.label} style={{ textAlign: "center", padding: "8px" }}>
+              <p
+                style={{
+                  fontSize: "clamp(1.2rem, 2.5vw, 1.7rem)",
+                  fontWeight: 800,
+                  fontFamily: "var(--font-barlow-condensed)",
+                  color: "var(--color-gold)",
+                  marginBottom: "4px",
+                  lineHeight: 1,
+                }}
+              >
+                {stat.value}
+              </p>
+              <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
 
-
-      {/* Services Section */}
       <ServicesSection />
 
       {/* Featured Work Section */}
@@ -112,6 +156,67 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <TestimonialSlider />
+
+      {/* ── Blog Teaser Section ── */}
+      <section style={{ background: "#fff", padding: "64px 24px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "12px", marginBottom: "32px" }}>
+            <div>
+              <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--color-starbucks-green)" }}>
+                Free Knowledge
+              </span>
+              <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, fontFamily: "var(--font-barlow-condensed)", color: "var(--color-forest-dark)", marginTop: "6px" }}>
+                SEO & Web Dev Guides for Mumbai & Pune
+              </h2>
+            </div>
+            <Link
+              href="/blog"
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px", fontWeight: 600, color: "var(--color-starbucks-green)", textDecoration: "none", whiteSpace: "nowrap" }}
+            >
+              All Articles <ArrowRight size={14} />
+            </Link>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))", gap: "20px" }}>
+            {[
+              { title: "How Much Does Website Development Cost in Mumbai?", slug: "website-development-cost-mumbai", tag: "Web Dev", time: "7 min" },
+              { title: "Why Your Pune Business Website Isn't Ranking on Google", slug: "why-pune-website-not-ranking-google", tag: "SEO", time: "8 min" },
+              { title: "How to Choose the Best SEO Company in Mumbai", slug: "best-seo-company-mumbai-how-to-choose", tag: "SEO", time: "9 min" },
+            ].map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  background: "var(--color-cream)",
+                  border: "1px solid var(--color-outline-gray)",
+                  borderRadius: "14px",
+                  padding: "22px",
+                  textDecoration: "none",
+                  transition: "box-shadow 0.2s, transform 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 24px rgba(30,57,50,0.12)";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+                  <span style={{ fontSize: "11px", fontWeight: 600, color: "#166534", background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: "50px", padding: "2px 8px" }}>{post.tag}</span>
+                  <span style={{ fontSize: "11px", color: "var(--color-slate-gray)" }}>{post.time} read</span>
+                </div>
+                <p style={{ fontSize: "15px", fontWeight: 700, color: "var(--color-forest-dark)", lineHeight: 1.35, marginBottom: "12px" }}>{post.title}</p>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "13px", fontWeight: 600, color: "var(--color-starbucks-green)", marginTop: "auto" }}>
+                  Read Article <ArrowRight size={12} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section id="faq" className={`${styles.section} ${styles.sectionAlt}`}>
