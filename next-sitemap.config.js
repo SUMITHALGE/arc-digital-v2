@@ -30,6 +30,14 @@ module.exports = {
       await config.transform(config, "/web-development-company-chhatrapati-sambhajinagar"),
       await config.transform(config, "/seo-company-chhatrapati-sambhajinagar"),
       await config.transform(config, "/digital-marketing-agency-chhatrapati-sambhajinagar"),
+      // Pune micro-location pages (new — high-intent suburb keywords)
+      await config.transform(config, "/web-development-company-wakad"),
+      await config.transform(config, "/web-development-company-hinjawadi"),
+      await config.transform(config, "/web-development-company-baner"),
+      await config.transform(config, "/web-development-company-pimpri-chinchwad"),
+      await config.transform(config, "/web-development-company-pimple-saudagar"),
+      await config.transform(config, "/seo-company-wakad"),
+      await config.transform(config, "/seo-company-hinjawadi"),
       // Blog articles — high-intent SEO content
       await config.transform(config, "/blog"),
       await config.transform(config, "/blog/website-development-cost-mumbai"),
@@ -61,6 +69,7 @@ module.exports = {
       "/services/website-development",
       "/services/website-redesign",
       "/services/seo-services",
+      "/services/application-development",
     ];
     const locationPriority = [
       "/website-redesign-mumbai",
@@ -69,6 +78,14 @@ module.exports = {
       "/react-development-pune",
       "/spring-boot-development-mumbai",
       "/spring-boot-development-pune",
+      // Pune micro-location pages
+      "/web-development-company-wakad",
+      "/web-development-company-hinjawadi",
+      "/web-development-company-baner",
+      "/web-development-company-pimpri-chinchwad",
+      "/web-development-company-pimple-saudagar",
+      "/seo-company-wakad",
+      "/seo-company-hinjawadi",
     ];
 
     return {

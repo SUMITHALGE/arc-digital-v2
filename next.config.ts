@@ -20,6 +20,46 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // ─── 301 Redirect: non-www → www (canonical domain enforcement) ─────────────
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "arcdigitalsolution.in" }],
+        destination: "https://www.arcdigitalsolution.in/:path*",
+        permanent: true, // 301
+      },
+    ];
+  },
+
+  // ─── Security & SEO Headers (applied to every route) ─────────────────────────
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          // Prevent clickjacking
+          { key: "X-Frame-Options", value: "DENY" },
+          // Prevent MIME-type sniffing
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Safe referrer policy
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          // Restrict browser features
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          // HSTS — enforce HTTPS for 1 year
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+          // XSS Protection (legacy browsers)
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

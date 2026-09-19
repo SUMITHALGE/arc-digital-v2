@@ -51,15 +51,23 @@ export default function AboutPage() {
     "@type": "Person",
     "@id": "https://www.arcdigitalsolution.in/about#sumit-halge",
     name: "Sumit Halge",
+    givenName: "Sumit",
+    familyName: "Halge",
     jobTitle: "Founder & Software Engineer",
     description:
-      "Sumit Halge is the founder of ARC Digital Solutions, a web development and digital marketing company in Mumbai and Pune. He specializes in React.js, Spring Boot, Next.js, SEO, and cloud technologies.",
+      "Sumit Halge is the founder of ARC Digital Solutions, a web development and digital marketing company in Mumbai and Pune. He specializes in React.js, Spring Boot, Next.js, SEO, and cloud technologies. Founded ARC Digital Solutions to help Indian businesses grow their digital presence with world-class web development and measurable SEO results.",
     url: "https://www.arcdigitalsolution.in/about",
     image: "https://www.arcdigitalsolution.in/testimonials/sumit.png",
     worksFor: {
       "@type": "Organization",
       "@id": "https://www.arcdigitalsolution.in/#business",
       name: "ARC Digital Solutions",
+    },
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Software Engineer",
+      occupationLocation: { "@type": "City", name: "Pune" },
+      description: "Full-stack software engineer specializing in React.js, Spring Boot, and digital growth strategies for Indian businesses.",
     },
     address: [
       { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
@@ -68,11 +76,16 @@ export default function AboutPage() {
     knowsAbout: [
       "React.js", "Next.js", "Spring Boot", "Java", "JavaScript", "TypeScript",
       "SEO", "Digital Marketing", "Web Development", "Microservices",
-      "AWS", "Docker", "UI/UX Design", "E-Commerce Development",
+      "AWS", "Docker", "Kafka", "UI/UX Design", "E-Commerce Development",
+      "Core Web Vitals", "Technical SEO", "Local SEO", "OWASP Security",
     ],
+    knowsLanguage: ["English", "Hindi", "Marathi"],
     sameAs: [
       "https://www.linkedin.com/in/sumithalge/",
       "https://github.com/sumithalge",
+      "https://twitter.com/arcdigital",
+      "https://clutch.co/profile/arc-digital-solutions",
+      "https://share.google/fFpALBVM1pFuvoPYl",
     ],
   };
 

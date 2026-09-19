@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { Code, Sparkles, Search, CheckCircle2, ArrowRight } from "lucide-react";
+import { Code, Sparkles, Search, CheckCircle2, ArrowRight, Smartphone } from "lucide-react";
 import styles from "./services.module.css";
 
 export const metadata: Metadata = {
-  title: "Services | Arc Digital Solutions",
+  title: "Our Services | Web Development, SEO & App Development | ARC Digital Solutions",
   description:
-    "Arc Digital Solutions provides speed-optimized Website Development, premium Website Redesign, and advanced SEO Services designed to drive traffic and convert customers.",
+    "ARC Digital Solutions offers Website Development, Website Redesign, SEO Services & Application Development for businesses in Mumbai, Pune & across India. Free consultation.",
+  alternates: {
+    canonical: "https://www.arcdigitalsolution.in/services",
+    languages: { "en-IN": "https://www.arcdigitalsolution.in/services" },
+  },
 };
 
 const serviceCards = [
@@ -51,6 +55,20 @@ const serviceCards = [
       "Content structure & header optimization",
       "Core speed audits & file minification",
       "Monthly performance dashboards & analytics",
+    ],
+  },
+  {
+    icon: <Smartphone className="w-8 h-8" style={{ color: "#22c55e" }} />,
+    title: "Application Development",
+    href: "/services/application-development",
+    desc: "Build scalable React.js web apps, React Native mobile applications, and Spring Boot microservice APIs — engineered for performance, security, and business growth.",
+    color: "rgba(34, 197, 94, 0.08)",
+    features: [
+      "React.js & React Native cross-platform apps",
+      "Spring Boot REST API & microservices",
+      "OWASP security-first architecture",
+      "Agile 2-week sprint delivery cycles",
+      "CI/CD deployment & cloud hosting",
     ],
   },
 ];

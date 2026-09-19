@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "./posts";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
+import "./blog.css";
 
 export const metadata: Metadata = {
   title: "Blog | Web Development & SEO Insights — ARC Digital Solutions",
@@ -101,14 +102,7 @@ export default function BlogPage() {
             transition: "box-shadow 0.25s, transform 0.25s",
             boxShadow: "0 2px 16px rgba(30,57,50,0.06)",
           }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 40px rgba(30,57,50,0.14)";
-            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 16px rgba(30,57,50,0.06)";
-            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-          }}
+          className="blog-card-featured"
         >
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "16px" }}>
             <span
@@ -180,14 +174,7 @@ export default function BlogPage() {
                 transition: "box-shadow 0.25s, transform 0.25s",
                 boxShadow: "0 1px 8px rgba(30,57,50,0.05)",
               }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 30px rgba(30,57,50,0.13)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 1px 8px rgba(30,57,50,0.05)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-              }}
+              className="blog-card"
             >
               {/* Category + date */}
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
@@ -247,7 +234,7 @@ export default function BlogPage() {
             Ready to Grow Your Mumbai or Pune Business?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: "28px", fontSize: "16px" }}>
-            Get a free consultation — we'll audit your website and tell you exactly what's holding back your Google rankings.
+            Get a free consultation &mdash; we&apos;ll audit your website and tell you exactly what&apos;s holding back your Google rankings.
           </p>
           <a
             href="https://wa.me/917719902074?text=Hi%2C%20I%20read%20your%20blog%20and%20want%20a%20free%20website%20audit"
