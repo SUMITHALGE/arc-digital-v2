@@ -203,49 +203,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-canvas-white);
 }
 
-/* ── Arc Hero Animations (moved from inline style tag) ──── */
-@keyframes arc-fade-in-up {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 50%);
-  }
-}
-
-@keyframes arc-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.arc-fade-in-up {
-  animation-name: arc-fade-in-up;
-  animation-duration: 0.7s;
-  animation-timing-function: ease-out;
-}
-
-.arc-fade-in {
-  animation-name: arc-fade-in;
-  animation-duration: 0.7s;
-  animation-timing-function: ease-out;
-}
-
 /* ── Reduced Motion Accessibility ───────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .arc-fade-in-up,
-  .arc-fade-in {
-    animation: none;
-    opacity: 1;
-  }
-
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

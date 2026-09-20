@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ui/services";
-import ElegantCarousel from "@/components/ui/elegant-carousel";
 import TestimonialSlider from "@/components/ui/testimonial-slider";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -148,11 +147,6 @@ export default function Home() {
 
 
       <ServicesSection />
-
-      {/* Featured Work Section */}
-      <ElegantCarousel />
-
-
 
       {/* Testimonials Section */}
       <TestimonialSlider />
