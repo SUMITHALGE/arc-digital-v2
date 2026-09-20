@@ -20,18 +20,6 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // ─── 301 Redirect: non-www → www (canonical domain enforcement) ─────────────
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "arcdigitalsolution.in" }],
-        destination: "https://www.arcdigitalsolution.in/:path*",
-        permanent: true, // 301
-      },
-    ];
-  },
-
   // ─── Security & SEO Headers (applied to every route) ─────────────────────────
   async headers() {
     return [
